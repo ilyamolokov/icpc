@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react"
 
 function Main() {
-  return (
-    <div>
-      abracadabra
-    </div>
-  );
+  return <div>some text</div>
 }
 
-export default Main;
+export default Main
