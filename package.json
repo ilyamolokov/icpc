@@ -36,7 +36,7 @@
     "hooks": {
       "pre-commit": "npm run fix-code-style"
     }
-  },  
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
