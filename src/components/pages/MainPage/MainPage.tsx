@@ -1,7 +1,10 @@
+import { Modal } from "../../Modal/Modal"
 import "./MainPage.css"
-import React from "react"
+import React, { useState } from "react"
+import { createPortal } from "react-dom"
 
 function MainPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
   return (
     <div className="mainPage">
       <header className="header">
@@ -9,24 +12,25 @@ function MainPage() {
       </header>
       <div className="options">
         <div className="optionsContainer">
-          <a className="optionActive" href="/">
+          <button className="option active" >
             Пробный контест
-          </a>
-          <a className="option" href="/">
+          </button>
+          <button className="option">
             Архив соревнований
-          </a>
-          <a className="option" href="/">
+          </button>
+          <button className="option">
             Настройки компиляторов
-          </a>
-          <a className="option" href="/">
+          </button>
+          <button className="option">
             Значения ошибок
-          </a>
-          <a className="option" href="/">
+          </button>
+          <button className="option">
             Команды
-          </a>
-          <a className="option" href="/">
-            Командная тренировка (ICPC)
-          </a>
+          </button>
+          <button className="option" onClick={()=> setIsModalOpen(!isModalOpen)}>
+            {`Командная тренировка (ICPC)`}
+          </button>
+          {isModalOpen && createPortal(<Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>, document.getElementById("modal")!)}
         </div>
       </div>
       <div className="content">
@@ -46,7 +50,7 @@ function MainPage() {
           </div>
           <div className="infoContainer">
             <span>Виртуальное соревнование идет, вы можете стартовать</span>
-            <button className="buttonStart">Стартовать виртуальное соревнование</button>
+            <button className="buttonActive">Стартовать виртуальное соревнование</button>
           </div>
         </div>
       </div>
