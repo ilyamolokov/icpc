@@ -1,12 +1,13 @@
 import React from "react"
-import MainPage from "./pages/MainPage/MainPage";
+
+import MainPage from "./pages/MainPage/MainPage"
 
 const App = () => {
   return (
     <div>
-        <MainPage />
+      <MainPage />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
