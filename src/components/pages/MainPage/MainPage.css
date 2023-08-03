@@ -1,0 +1,168 @@
+.header {
+    padding: 0px 85.5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 79px;
+    border-bottom: 1px solid #dbdad8;
+
+}
+
+.logo {
+    width: 150px;
+    height: 38px;
+    margin: 5px 0 7px 35px;
+    background-size: 150px 38px;
+    background-repeat: no-repeat;
+    background-image: url('../../../assets/images/logo.svg');
+}
+
+.options {
+    border-bottom: 1px solid #dbdad8;
+    font-size: 15px;
+    line-height: 36px;
+    width: 100%;
+}
+
+.optionsContainer {
+    width: 960px;
+    margin: 0 auto;
+    gap: 10px;
+
+}
+
+.option {
+    color: #66707d;
+    text-decoration: none;
+    margin-right: 16px;
+}
+
+.optionActive {
+    position: relative;
+    color: black;
+    text-decoration: none;
+    margin-right: 16px;
+    font-weight: 600;
+}
+
+.optionActive::before {
+    position: absolute;
+    right: 0;
+    left: 0;
+    content: '';
+    top: auto;
+    bottom: -11px;
+    height: 3px;
+    background-color: #ffcf06;
+}
+
+.contentContainer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #dbdad8;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #dbdad8;
+}
+
+.content {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.titleContainer {
+    display: flex;
+    height: 75px;
+    padding: 10px 10px 0px 10px;
+    border-bottom: 1px solid #dbdad8;
+}
+
+.infoContainer {
+    padding: 40px 10px;
+    padding-bottom: 40px;
+    text-align: center;
+    font-size: 35px;
+    line-height: 150%;
+}
+
+.title {
+    font-size: 35px;
+    flex-grow: 1;
+    text-decoration: none;
+    color: #3d71bd;
+}
+
+.contentStatus {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    padding-left: 92px;
+    font-size: 14px;
+    align-items: flex-start;
+}
+
+.firstLine {
+    align-self: flex-end;
+    line-height: 24px;
+    margin-right: 20px;
+}
+
+.secondLine {
+    align-self: flex-start;
+    line-height: 24px;
+}
+
+.secondName {
+    margin-right: 10px;
+    color: #606060;
+}
+
+.contentButton {
+    background: rgba(0, 0, 0, .08) !important;
+    border: 0;
+    height: 28px;
+    border-radius: 4px;
+    padding: 0px 12px;
+    margin-left: 15px;
+    color: #aaa;
+}
+
+.buttonStart {
+    border: 1px solid rgba(191, 153, 0, .8);
+    border-radius: 3px;
+    background-color: #ffdb4d;
+    background-clip: padding-box;
+    line-height: 31px;
+    padding: 0px 13px;
+    font-size: 15px;
+    color: black;
+}
+
+.footer {
+    border-top: 1px solid #dedddb;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    float: left;
+    margin-right: 16px;
+}
+
+a {
+    color: #8792a8;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+}
