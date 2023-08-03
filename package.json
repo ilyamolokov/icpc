@@ -28,7 +28,8 @@
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "husky": "^8.0.3",
     "prettier": "^2.8.8",
-    "stylelint": "^15.8.0",
+    "stylelint": "^15.10.2",
+    "stylelint-config-standard": "^34.0.0",
     "stylelint-order": "^6.0.3",
     "stylelint-semantic-groups": "^1.2.0",
     "typescript-plugin-css-modules": "^5.0.1"
