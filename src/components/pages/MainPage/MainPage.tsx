@@ -1,7 +1,8 @@
-import { Modal } from "../../Modal/Modal"
 import "./MainPage.css"
 import React, { useState } from "react"
 import { createPortal } from "react-dom"
+
+import { Modal } from "../../Modal/Modal"
 
 function MainPage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -12,25 +13,16 @@ function MainPage() {
       </header>
       <div className="options">
         <div className="optionsContainer">
-          <button className="option active" >
-            Пробный контест
-          </button>
-          <button className="option">
-            Архив соревнований
-          </button>
-          <button className="option">
-            Настройки компиляторов
-          </button>
-          <button className="option">
-            Значения ошибок
-          </button>
-          <button className="option">
-            Команды
-          </button>
-          <button className="option" onClick={()=> setIsModalOpen(!isModalOpen)}>
+          <button className="option active">Пробный контест</button>
+          <button className="option">Архив соревнований</button>
+          <button className="option">Настройки компиляторов</button>
+          <button className="option">Значения ошибок</button>
+          <button className="option">Команды</button>
+          <button className="option" onClick={() => setIsModalOpen(!isModalOpen)}>
             {`Командная тренировка (ICPC)`}
           </button>
-          {isModalOpen && createPortal(<Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>, document.getElementById("modal")!)}
+          {isModalOpen &&
+            createPortal(<Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />, document.getElementById("modal")!)}
         </div>
       </div>
       <div className="content">

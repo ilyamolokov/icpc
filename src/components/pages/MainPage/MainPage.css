@@ -39,8 +39,8 @@
   padding: 0;
 }
 .option:hover {
-    color:red;
-    cursor: pointer;
+  color: red;
+  cursor: pointer;
 }
 .active {
   position: relative;
