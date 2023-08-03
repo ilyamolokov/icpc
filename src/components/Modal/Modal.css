@@ -1,18 +1,23 @@
 .modal {
-  background: white;
-  border-bottom: 1px solid #dbdad8;
+  width: 50%;
   height: 60%;
   padding: 24px;
-  width: 50%;
+
+  border-bottom: 1px solid #dbdad8;
+
+  background: white;
 }
 
 .exit {
-  display: flex;
   justify-content: center;
   align-items: center;
+
   margin: 0;
+
   font-weight: 500;
+
   cursor: pointer;
+  display: flex;
 }
 
 .modalTitle {
@@ -22,6 +27,7 @@
 .modalHeader {
   display: flex;
   justify-content: space-between;
+
   font-weight: 600;
   font-size: 18px;
 }
@@ -31,15 +37,17 @@
 .teams {
   height: 100%;
   margin: 5px 0px;
+
   font-size: 15px;
+
   overflow-y: scroll;
 }
 
 .team {
-  margin-right: 15px;
-  padding: 10px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
+  margin-right: 15px;
+  padding: 10px 10px;
 }

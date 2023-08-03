@@ -1,5 +1,5 @@
-import React, { FunctionComponent, SetStateAction, useCallback, useEffect, useRef } from "react"
 import "./Modal.css"
+import React, { FunctionComponent, SetStateAction, useCallback, useEffect, useRef } from "react"
 
 interface ModalProps {
   isModalOpen: boolean
@@ -10,15 +10,9 @@ export const Modal: FunctionComponent<ModalProps> = ({ isModalOpen, setIsModalOp
   const ref = useRef<HTMLDivElement>(null)
 
   const handleClickOutside = useCallback((event: MouseEvent) => {
-          if (ref.current && !ref.current.contains(event.target as Node)) {
-            setIsModalOpen(false)
-
-
-
-
-
-
-          }
+            if (ref.current && !ref.current.contains(event.target as Node)) {
+              setIsModalOpen(false)
+            }
   }, [])
 
   useEffect(() => {
