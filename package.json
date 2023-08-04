@@ -7,8 +7,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "npx husky install",
-    "fix-code-style": "prettier --write ./src && stylelint --fix **/*.css"
+    "style": "prettier --write ./src && stylelint --fix ./src/**/*.css"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -26,17 +25,11 @@
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
-    "husky": "^8.0.3",
     "prettier": "^2.8.8",
     "stylelint": "^15.8.0",
     "stylelint-order": "^6.0.3",
     "stylelint-semantic-groups": "^1.2.0",
     "typescript-plugin-css-modules": "^5.0.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run fix-code-style"
-    }
   },
   "eslintConfig": {
     "extends": [
@@ -57,3 +50,4 @@
     ]
   }
 }
+
