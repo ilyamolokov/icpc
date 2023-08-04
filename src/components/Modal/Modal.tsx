@@ -10,9 +10,9 @@ export const Modal: FunctionComponent<ModalProps> = ({ isModalOpen, setIsModalOp
   const ref = useRef<HTMLDivElement>(null)
 
   const handleClickOutside = useCallback((event: MouseEvent) => {
-            if (ref.current && !ref.current.contains(event.target as Node)) {
-              setIsModalOpen(false)
-            }
+    if (ref.current && !ref.current.contains(event.target as Node)) {
+      setIsModalOpen(false)
+    }
   }, [])
 
   useEffect(() => {
