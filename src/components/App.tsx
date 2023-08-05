@@ -1,11 +1,11 @@
 import React from "react"
 
-import { Comments } from "./Comments/Comments"
+import { TaskDescription } from "./TaskDescription/TaskDescription"
 
 const App = () => {
   return (
     <div>
-      <Comments />
+      <TaskDescription />
     </div>
   )
 }
