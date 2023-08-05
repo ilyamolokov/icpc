@@ -1,4 +1,4 @@
-import "./MainPage.css"
+import styles from "./MainPage.module.css"
 import React, { useState } from "react"
 import { createPortal } from "react-dom"
 
@@ -7,46 +7,46 @@ import { Modal } from "../../Modal/Modal"
 function MainPage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   return (
-    <div className="mainPage">
-      <header className="header">
-        <div className="logo"></div>
+    <div className={styles.mainPage}>
+      <header className={styles.header}>
+        <div className={styles.logo}></div>
       </header>
-      <div className="options">
-        <div className="optionsContainer">
-          <button className="option active">Пробный контест</button>
-          <button className="option">Архив соревнований</button>
-          <button className="option">Настройки компиляторов</button>
-          <button className="option">Значения ошибок</button>
-          <button className="option">Команды</button>
-          <button className="option" onClick={() => setIsModalOpen(!isModalOpen)}>
+      <div className={styles.options}>
+        <div className={styles.optionsContainer}>
+          <button className= {`${styles.option} ${styles.active}`}>Пробный контест</button> 
+          <button className={styles.option}>Архив соревнований</button>
+          <button className={styles.option}>Настройки компиляторов</button>
+          <button className={styles.option}>Значения ошибок</button>
+          <button className={styles.option}>Команды</button>
+          <button className={styles.option} onClick={() => setIsModalOpen(!isModalOpen)}>
             {`Командная тренировка (ICPC)`}
           </button>
           {isModalOpen &&
             createPortal(<Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />, document.getElementById("modal")!)}
         </div>
       </div>
-      <div className="content">
-        <div className="contentContainer">
-          <div className="titleContainer">
-            <a className="title" href="/">
+      <div className={styles.content}>
+        <div className={styles.contentContainer}>
+          <div className={styles.titleContainer}>
+            <a className={styles.title} href="/">
               Ознакомительный контест
             </a>
-            <div className="contentStatus">
-              <div className="firstLine">26 авг 2023, 23:00:00</div>
-              <div className="secondLine">
-                <span className="secondName">длительность:</span>
+            <div className={styles.contentStatus} >
+              <div className={styles.firstLine}>26 авг 2023, 23:00:00</div>
+              <div className={styles.secondLine}>
+                <span className={styles.secondName}>длительность:</span>
                 02:00:00
               </div>
             </div>
-            <button className="contentButton">Объявления жюри</button>
+            <button className={styles.contentButton}>Объявления жюри</button>
           </div>
-          <div className="infoContainer">
+          <div className={styles.infoContainer}>
             <span>Виртуальное соревнование идет, вы можете стартовать</span>
-            <button className="buttonActive">Стартовать виртуальное соревнование</button>
+            <button className={styles.buttonActive}>Стартовать виртуальное соревнование</button>
           </div>
         </div>
       </div>
-      <footer className="footer">
+      <footer className={styles.footer}>
         <ul>
           <li>
             <a href="/">Справка</a>

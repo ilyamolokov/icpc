@@ -1,4 +1,4 @@
-import "./Modal.css"
+import "./Modal.module.css"
 import React, { FunctionComponent, SetStateAction, useCallback, useEffect, useRef } from "react"
 
 interface ModalProps {
