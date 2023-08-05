@@ -54,6 +54,20 @@ export const Tasks: FC = () => {
           selected={selectedTask === "10"}
           onSelect={() => setSelectedTask("10")}
         />
+        <Task
+          title="F. Islands from the Sky"
+          id="11"
+          status="default"
+          selected={selectedTask === "11"}
+          onSelect={() => setSelectedTask("11")}
+        />
+        <Task
+          title="F. Islands from the Sky"
+          id="12"
+          status="default"
+          selected={selectedTask === "12"}
+          onSelect={() => setSelectedTask("12")}
+        />
       </div>
 
       <Info />

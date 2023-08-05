@@ -1,19 +1,18 @@
 .container {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  align-items: center;
+  align-items: stretch;
 
   width: 333px;
   height: 490px;
   box-sizing: border-box;
-
-  overflow-y: auto;
 }
 
 .tasks {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  overflow-y: auto;
 
   margin-bottom: 20px;
 }
