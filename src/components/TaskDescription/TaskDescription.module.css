@@ -33,21 +33,6 @@
 
   border-bottom: 1px solid var(--color-grey-secondary);
 }
-.taskStatus {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  height: fit-content;
-  padding: 15px 22px 12px 22px;
-
-  font-size: 12px;
-
-  border-radius: 16px;
-
-  background-color: var(--color-white-grey);
-}
 .activeTab {
   position: relative;
 
@@ -65,6 +50,20 @@
   height: 1px;
 
   background-color: var(--color-black-typo-primary);
+}
+.taskStatus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: fit-content;
+  padding: 12px 26px 10px 26px;
+  border-radius: 10px;
+
+  font-size: 12px;
+
+  background-color: var(--color-white-grey);
 }
 .taskTitleBlock {
   display: flex;
