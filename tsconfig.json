@@ -19,17 +19,17 @@
       {
         "name": "typescript-plugin-css-modules"
       }
-    ],
-    "paths": {
-      "@icons/*": ["./src/components/icons/*"],
-      "@components/*": ["./src/components/*"],
-      "@componentsUsingStore/*": ["./src/componentsUsingStore/*"],
-      "@store/*": ["./src/store/*"],
-      "@common/*": ["./src/common/*"],
-      "@contexts/*": ["./src/contexts/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@utils/*": ["./src/utils/*"]
-    }
+    ]
+    // "paths": {
+    //   "@icons/*": ["./src/components/icons/*"],
+    //   "@components/*": ["./src/components/*"],
+    //   "@componentsUsingStore/*": ["./src/componentsUsingStore/*"],
+    //   "@store/*": ["./src/store/*"],
+    //   "@common/*": ["./src/common/*"],
+    //   "@contexts/*": ["./src/contexts/*"],
+    //   "@hooks/*": ["./src/hooks/*"],
+    //   "@utils/*": ["./src/utils/*"]
+    // }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"]
