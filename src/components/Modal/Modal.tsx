@@ -1,5 +1,6 @@
 import React, { FunctionComponent, SetStateAction, useCallback, useEffect, useRef } from "react"
 
+import styles from "./Modal.module.css"
 import "./Modal.module.css"
 
 interface ModalProps {
@@ -51,19 +52,19 @@ export const Modal: FunctionComponent<ModalProps> = ({ isModalOpen, setIsModalOp
   ]
 
   return (
-    <div className="modal" ref={ref} onClick={(e) => e.preventDefault()}>
-      <div className="modalHeader">
-        <p className="modalTitle">Выберите команду</p>
-        <p className="exit" onClick={() => setIsModalOpen(false)}>
+    <div className={styles.modal} ref={ref} onClick={(e) => e.preventDefault()}>
+      <div className={styles.modalHeader}>
+        <p className={styles.modalTitle}>Выберите команду</p>
+        <p className={styles.exit} onClick={() => setIsModalOpen(false)}>
           x
         </p>
       </div>
-      <div className="teams">
+      <div className={styles.teams}>
         {teams.map((team) => {
           return (
-            <div className="team" key={team.id}>
+            <div className={styles.team} key={team.id}>
               <span>{team.name}</span>
-              <button className="buttonActive">Присоединиться</button>
+              <button className={styles.buttonActive}>Присоединиться</button>
             </div>
           )
         })}
