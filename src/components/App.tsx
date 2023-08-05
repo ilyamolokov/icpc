@@ -1,12 +1,11 @@
 import React from "react"
 
-import MainPage from "./pages/MainPage/MainPage"
+import { Comments } from "./Comments/Comments"
 
-const a = 3
 const App = () => {
   return (
     <div>
-      <MainPage />
+      <Comments />
     </div>
   )
 }
