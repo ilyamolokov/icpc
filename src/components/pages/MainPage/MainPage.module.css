@@ -22,7 +22,7 @@
 
 .options {
   width: 100%;
-;
+
   line-height: 36px;
 
   border-bottom: 1px solid #dbdad8;
@@ -42,9 +42,10 @@
   color: #66707d;
   font-size: 15px;
   text-decoration: none;
-  background-color: var(--color-white-grey);;
+
   border: none;
 
+  background-color: var(--color-white-grey);
 }
 .option:hover {
   color: red;

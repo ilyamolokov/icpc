@@ -5,6 +5,8 @@
   "tabWidth": 2,
   "endOfLine": "crlf",
   "importOrder": [
+    "^react-ace",
+    "^ace-builds/src-noconflict/mode-javascript",
     "^(@clients).*",
     "^(@components).*",
     "^(@componentsUsingStore).*",
