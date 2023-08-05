@@ -1,12 +1,19 @@
 .header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 333fr 451fr 568fr;
   align-items: center;
 
   column-gap: 20px;
 }
 
-.tabs {
+.headerSection {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tabs {
+  justify-content: start;
 }
 
 .tabItem {

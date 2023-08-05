@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 
+import { BlockWrapper } from "../BlockWrapper/BlockWrapper"
 import { Comment } from "./Comment/Comment"
 
 import styles from "./Comments.module.css"
@@ -45,11 +46,22 @@ export const Comments = () => {
   }
 
   return (
-    <div className={styles.comments}>
+    <BlockWrapper className={styles.blockWrapper}>
       <span className={styles.commentsTitle}>Комментарии к задаче</span>
       <div className={styles.chat}>
         <Comment username={"Ilya"} message={"Hello from Almaty Hello from Almaty Hello from Almaty Hello from Almaty Hello from Almaty "} />
         <Comment username={"Ruslan"} message={"Salam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
         <Comment username={"Yaroslav"} message={"Popolam"} />
       </div>
       <textarea
@@ -62,6 +74,6 @@ export const Comments = () => {
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />
-    </div>
+    </BlockWrapper>
   )
 }
