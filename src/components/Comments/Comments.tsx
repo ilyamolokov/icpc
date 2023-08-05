@@ -53,6 +53,16 @@ export const Comments = () => {
         <Comment username={"Ruslan"} message={"Salam"} />
         <Comment username={"Yaroslav"} message={"Popolam"} />
         <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
+        <Comment username={"Yaroslav"} message={"Popolam"} />
       </div>
       <textarea
         rows={state.rows}

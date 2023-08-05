@@ -5,6 +5,7 @@
 
   height: 100%;
   box-sizing: border-box;
+  row-gap: 20px;
 }
 
 .tasks {
@@ -15,7 +16,7 @@
   height: 100%;
   margin-bottom: 20px;
 
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .title {

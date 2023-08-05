@@ -19,20 +19,25 @@
   gap: 20px;
 
   height: 100%;
+  overflow: hidden;
 }
 
 .tasks {
   grid-area: tasks;
+  overflow: hidden;
 }
 
 .comments {
   grid-area: comments;
+  overflow: hidden;
 }
 
 .tasksDescription {
   grid-area: tasksDescription;
+  overflow: hidden;
 }
 
 .editor {
   grid-area: editor;
+  overflow: hidden;
 }
