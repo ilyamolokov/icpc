@@ -5,8 +5,6 @@ import { Comment } from "./Comment/Comment"
 import styles from "./Comments.module.css"
 
 export const Comments = () => {
-  const [updated, setUpdated] = useState("")
-
   const [state, setState] = useState({
     message: "",
     rows: 1,
@@ -40,9 +38,9 @@ export const Comments = () => {
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === "Enter") {
+      event.preventDefault()
       console.log(state.message)
-      setState({ ...state, message: "" })
-      setUpdated(state.message)
+      setState({ ...state, message: "", rows:1 })
     }
   }
 
@@ -53,15 +51,10 @@ export const Comments = () => {
         <Comment username={"Ilya"} message={"Hello from Almaty Hello from Almaty Hello from Almaty Hello from Almaty Hello from Almaty "} />
         <Comment username={"Ruslan"} message={"Salam"} />
         <Comment username={"Yaroslav"} message={"Popolam"} />
-        <Comment username={"Yaroslav"} message={"Popolam"} />
-        <Comment username={"Yaroslav"} message={"Popolam"} />
-        <Comment username={"Yaroslav"} message={"Popolam"} />
-        <Comment username={"Yaroslav"} message={"Popolam"} />
-        <Comment username={"Yaroslav"} message={"Popolam"} />
       </div>
       <textarea
         rows={state.rows}
-        className={styles.footer}
+        className={styles.inputField}
         placeholder="Текст для ввода"
         id="message"
         name="message"
