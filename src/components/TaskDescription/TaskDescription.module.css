@@ -1,0 +1,124 @@
+.taskDescription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 451px;
+  height: 910px;
+  padding: 16px;
+
+  color: var(--color-black-typo-primary);
+  font-size: 14px;
+
+  border-radius: 16px;
+
+  background-color: var(--color-white);
+}
+.taskDescriptionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+}
+.tabulation {
+  display: flex;
+  gap: 17px;
+  align-items: center;
+
+  margin: 0;
+  padding: 12px 0px 8px 0px;
+
+  color: var(--color-grey-secondary);
+
+  border-bottom: 1px solid var(--color-grey-secondary);
+}
+.activeTab {
+  position: relative;
+
+  color: var(--color-black-typo-primary);
+  font-weight: 500;
+}
+.activeTab::before {
+  position: absolute;
+  top: auto;
+  left: 0;
+  bottom: -9px;
+  right: 0;
+  content: "";
+
+  height: 1px;
+
+  background-color: var(--color-black-typo-primary);
+}
+.taskStatus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: fit-content;
+  padding: 12px 26px 10px 26px;
+  border-radius: 10px;
+
+  font-size: 12px;
+
+  background-color: var(--color-white-grey);
+}
+.taskTitleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: center;
+
+  margin-top: 24px;
+}
+.taskTitleBlock h3 {
+  color: var(--color-black-typo-primary);
+  font-weight: 500;
+  font-size: 20px;
+}
+.inputTextBlock span,
+.outputTextBlock span,
+.codeSampleBlock span,
+.taskTitleBlock span,
+.codeSampleBlockIde p {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.inputTextBlock,
+.outputTextBlock,
+.codeSampleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+
+  margin-top: 32px;
+}
+.inputTextBlock h3,
+.outputTextBlock h3,
+.codeSampleBlockIde h3 {
+  font-weight: 500;
+  font-size: 18px;
+}
+.codeSampleBlock h2 {
+  font-weight: 500;
+  font-size: 28px;
+}
+.codeSampleBlockIde {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+
+  padding: 18px 16px 14px 16px;
+
+  border-radius: 16px;
+
+  background-color: var(--color-white-grey);
+}
+.codeSampleBlockIde p {
+  font-weight: 400;
+}

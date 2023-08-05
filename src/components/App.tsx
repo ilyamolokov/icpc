@@ -1,11 +1,11 @@
 import React from "react"
 
-import { Tasks } from "./Widgets/Tasks/Tasks"
+import { TaskDescription } from "./TaskDescription/TaskDescription"
 
 const App = () => {
   return (
     <div>
-      <Tasks />
+      <TaskDescription />
     </div>
   )
 }
