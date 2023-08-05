@@ -1,0 +1,13 @@
+.tabs {
+  font-size: 20px;
+}
+.tabsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:15px;
+}
+.tab {
+  height:40px;
+  border-bottom: ;
+}

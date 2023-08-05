@@ -1,13 +1,10 @@
 import React from "react"
+import {Header} from "./Header/Header"
 
-import { Modal } from "./Modal/Modal"
-import MainPage from "./pages/MainPage/MainPage"
-
-const a = 3
 const App = () => {
   return (
     <div>
-      <MainPage />
+      <Header />
     </div>
   )
 }
