@@ -1,6 +1,6 @@
+import "ace-builds/src-noconflict/mode-javascript"
 import React, { useEffect } from "react"
 import AceEditor from "react-ace"
-import "ace-builds/src-noconflict/mode-javascript"
 
 import { BlockWrapper } from "../BlockWrapper/BlockWrapper"
 import { Button } from "../Button/Button"
