@@ -40,7 +40,7 @@ export const Comments = () => {
     if (event.key === "Enter") {
       event.preventDefault()
       console.log(state.message)
-      setState({ ...state, message: "", rows:1 })
+      setState({ ...state, message: "", rows: 1 })
     }
   }
 
