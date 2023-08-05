@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+
+  color: var(--color-black-typo-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px; /* 142.857% */
+}

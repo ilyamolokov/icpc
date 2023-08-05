@@ -1,12 +1,11 @@
 import React from "react"
 
-import MainPage from "./pages/MainPage/MainPage"
+import { Tasks } from "./Widgets/Tasks/Tasks"
 
-const a = 3
 const App = () => {
   return (
     <div>
-      <MainPage />
+      <Tasks />
     </div>
   )
 }

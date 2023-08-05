@@ -1,0 +1,29 @@
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: center;
+
+  width: 333px;
+  height: 490px;
+  box-sizing: border-box;
+
+  overflow-y: auto;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  margin-bottom: 20px;
+}
+
+.title {
+  margin-bottom: 8px;
+
+  color: var(--color-black-typo-primary);
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 24px; /* 133.333% */
+  text-align: center;
+}
