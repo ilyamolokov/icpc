@@ -1,5 +1,6 @@
-import "./Modal.module.css"
 import React, { FunctionComponent, SetStateAction, useCallback, useEffect, useRef } from "react"
+
+import "./Modal.module.css"
 
 interface ModalProps {
   isModalOpen: boolean

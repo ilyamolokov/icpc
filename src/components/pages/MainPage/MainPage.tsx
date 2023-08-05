@@ -1,8 +1,9 @@
-import styles from "./MainPage.module.css"
 import React, { useState } from "react"
 import { createPortal } from "react-dom"
 
 import { Modal } from "../../Modal/Modal"
+
+import styles from "./MainPage.module.css"
 
 function MainPage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -13,7 +14,7 @@ function MainPage() {
       </header>
       <div className={styles.options}>
         <div className={styles.optionsContainer}>
-          <button className= {`${styles.option} ${styles.active}`}>Пробный контест</button> 
+          <button className={`${styles.option} ${styles.active}`}>Пробный контест</button>
           <button className={styles.option}>Архив соревнований</button>
           <button className={styles.option}>Настройки компиляторов</button>
           <button className={styles.option}>Значения ошибок</button>
@@ -31,7 +32,7 @@ function MainPage() {
             <a className={styles.title} href="/">
               Ознакомительный контест
             </a>
-            <div className={styles.contentStatus} >
+            <div className={styles.contentStatus}>
               <div className={styles.firstLine}>26 авг 2023, 23:00:00</div>
               <div className={styles.secondLine}>
                 <span className={styles.secondName}>длительность:</span>
