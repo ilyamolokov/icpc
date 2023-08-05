@@ -1,11 +1,13 @@
 import React from "react"
 
-import { TaskDescription } from "./TaskDescription/TaskDescription"
+import { Comments } from "./Comments/Comments"
+import { Cockpit } from "./pages/Cockpit/Cockpit"
 
 const App = () => {
   return (
     <div>
-      <TaskDescription />
+      {/*<Comments />*/}
+      <Cockpit />
     </div>
   )
 }

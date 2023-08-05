@@ -1,17 +1,10 @@
-.comments {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.blockWrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 
-  width: 333px;
-  height: 400px;
-  padding: 16px;
-
-  border-radius: 16px;
-
-  background-color: var(--color-white);
+  height: 100%;
 }
+
 .commentsTitle {
   font-weight: 500;
   font-size: 18px;

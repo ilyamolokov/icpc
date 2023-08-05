@@ -18,7 +18,7 @@ export const Select = () => {
   return (
     <div className={styles.select}>
       <div className={styles.selectHeader}>
-        <span className={styles.selectItem}>Python</span>
+        <span className={styles.selectItem}>JavaScript</span>
         <button onClick={onToggleSelect} className={styles.arrowButton}>
           <Arrow color="var(--color-black-typo-primary)" width={24} height={24} />
         </button>

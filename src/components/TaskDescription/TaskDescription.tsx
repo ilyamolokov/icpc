@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react"
 
+import { BlockWrapper } from "../BlockWrapper/BlockWrapper"
+
 import styles from "./TaskDescription.module.css"
 
 export const TaskDescription = () => {
   return (
-    <div className={styles.taskDescription}>
+    <BlockWrapper className={styles.blockWrapper}>
       <div className={styles.taskDescriptionHeader}>
-        <div className={styles.tabulation}> {/* В будущем можно вынести в отдельный компонент */}
+        <div className={styles.tabulation}>
+          {" "}
+          {/* В будущем можно вынести в отдельный компонент */}
           <span className={`${styles.description} ${styles.activeTab}`}>Описание</span>
           <span className={styles.solutions}>Отправленные решения</span>
         </div>
@@ -44,6 +48,6 @@ export const TaskDescription = () => {
           </div>
         </div>
       </div>
-    </div>
+    </BlockWrapper>
   )
 }
