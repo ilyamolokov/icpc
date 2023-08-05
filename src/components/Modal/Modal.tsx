@@ -1,5 +1,5 @@
 import React, { FunctionComponent, SetStateAction, useCallback, useEffect, useRef } from "react"
-
+import { Outlet, Link } from "react-router-dom";
 import styles from "./Modal.module.css"
 import "./Modal.module.css"
 
@@ -38,17 +38,7 @@ export const Modal: FunctionComponent<ModalProps> = ({ isModalOpen, setIsModalOp
   }, [isModalOpen])
 
   const teams = [
-    { name: "Локомотив", id: 1 },
-    { name: "Спартак", id: 2 },
-    { name: "ЦСКА", id: 3 },
-    { name: "Динамо", id: 4 },
-    { name: "Зенит", id: 5 },
-    { name: "Зенит", id: 6 },
-    { name: "Зенит", id: 7 },
-    { name: "Зенит", id: 8 },
-    { name: "Зенит", id: 9 },
-    { name: "Зенит", id: 10 },
-    { name: "Зенит", id: 11 },
+    { name: "Команда_ЛШЯ_2023", id: 1 },
   ]
 
   return (
@@ -64,7 +54,8 @@ export const Modal: FunctionComponent<ModalProps> = ({ isModalOpen, setIsModalOp
           return (
             <div className={styles.team} key={team.id}>
               <span>{team.name}</span>
-              <button className={styles.buttonActive}>Присоединиться</button>
+              
+              <button className={styles.buttonActive}><Link to="/cockpit">Присоединиться</Link></button>
             </div>
           )
         })}
