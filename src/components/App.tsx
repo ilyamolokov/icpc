@@ -1,10 +1,10 @@
 import React from "react"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 import { Comments } from "./Comments/Comments"
-import { Cockpit } from "./pages/Cockpit/Cockpit"
-import MainPage from "./pages/MainPage/MainPage"
-import Lobby from "./pages/Lobby/Lobby"
+import { Cockpit } from "../pages/Cockpit/Cockpit"
+import MainPage from "../pages/MainPage/MainPage"
+import Lobby from "../pages/Lobby/Lobby"
 
 const App = () => {
   return (

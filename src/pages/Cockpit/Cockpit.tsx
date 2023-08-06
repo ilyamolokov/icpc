@@ -1,10 +1,10 @@
 import React from "react"
 
-import { Comments } from "../../Comments/Comments"
-import { Editor } from "../../Editor/Editor"
-import { Header } from "../../Header/Header"
-import { TaskDescription } from "../../TaskDescription/TaskDescription"
-import { Tasks } from "../../Widgets/Tasks/Tasks"
+import { Comments } from "../../components/Comments/Comments"
+import { Editor } from "../../components/Editor/Editor"
+import { Header } from "../../components/Header/Header"
+import { TaskDescription } from "../../components/TaskDescription/TaskDescription"
+import { Tasks } from "../../components/Widgets/Tasks/Tasks"
 
 import styles from "./Cockpit.module.css"
 

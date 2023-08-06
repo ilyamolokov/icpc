@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import { createPortal } from "react-dom"
-import { BlockWrapper } from "../../BlockWrapper/BlockWrapper"
+import { BlockWrapper } from "../../components/BlockWrapper/BlockWrapper"
 import styles from "./Lobby.module.css"
-import { Arrow } from "../../icons/Arrow"
-import { User } from "../../icons/User"
+import { Arrow } from "../../components/icons/Arrow"
+import { User } from "../../components/icons/User"
 import classNames from "classnames"
-import { Check } from "../../icons/Check"
+import { Check } from "../../components/icons/Check"
 
 const Lobby = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -29,7 +29,7 @@ const Lobby = () => {
           <div className={styles.dropdownContainer}>
             <div className={styles.select} onClick={toggleDropdown}>
               <span>Тест_ШМЯ_2023</span>
-                <Arrow className={classNames(styles.arrow, { [styles.rotated]: isOpen })} width={24} height={24} color={"var(--color-black-typo-primary)"} />
+              <Arrow className={classNames(styles.arrow, { [styles.rotated]: isOpen })} width={24} height={24} color={"var(--color-black-typo-primary)"} />
             </div>
             {isOpen && (
               <div className={styles.dropdown}>

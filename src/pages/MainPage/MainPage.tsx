@@ -1,11 +1,15 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { createPortal } from "react-dom"
 
-import { Modal } from "../../Modal/Modal"
+import { api } from "../../api"
+import { Modal } from "../../components/Modal/Modal"
 
 import styles from "./MainPage.module.css"
 
 function MainPage() {
+  useEffect(() => {
+    api.get("http://localhost:3000/")
+  })
   const [isModalOpen, setIsModalOpen] = useState(false)
   return (
     <div className={styles.mainPage}>
