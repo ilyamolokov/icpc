@@ -7,3 +7,4 @@ module.exports = {
     "order/properties-order": propertyOrdering,
   },
 }
+
