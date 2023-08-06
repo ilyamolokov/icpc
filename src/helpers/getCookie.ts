@@ -12,4 +12,3 @@ export const getCookie = (name: string) => {
   // Return null if the cookie by name does not exist
   return null
 }
-

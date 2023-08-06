@@ -1,94 +1,101 @@
 .lobby {
-  padding: 16px 24px;
-  width:100%;
-  height: 100vh;
   display: flex;
   flex-direction: row;
+  gap: 20px;
   align-items: flex-start;
-  gap:20px;
+
+  width: 100%;
+  height: 100vh;
+  padding: 16px 24px;
 }
 .contestList {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
+  gap: 34px;
   align-items: flex-end;
-  gap:34px;
+
+  width: 100%;
+  height: 100%;
 }
 .askQuestion {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  
-    height: fit-content;
-    padding: 14px 58px 12px 58px;
-  
-    font-size: 14px;
-  
-    border-radius: 10px;
-    border:none;
-  
-    background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: fit-content;
+  padding: 14px 58px 12px 58px;
+
+  font-size: 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: white;
 }
 .contestItem {
-  padding:16px 16px 14px;
+  padding: 16px 16px 14px;
+
   font-size: 14px;
 }
 .blockWrapper {
-  width:100%;
-  overflow-y: scroll;
+  width: 100%;
   height: 100%;
+
+  overflow-y: scroll;
 }
-.selectItemText, .contestItemText {
-  text-decoration: none;
+.selectItemText,
+.contestItemText {
   color: black;
+  text-decoration: none;
 }
 .startButton {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   height: fit-content;
   padding: 14px 58px 12px 58px;
 
   font-size: 14px;
 
+  border: none;
   border-radius: 10px;
-  border:none;
 
   background-color: var(--color-yellow-primary);
 }
 .startButton a:hover {
-  color:red;
+  color: red;
 }
 .startButton a {
-  color:black;
+  color: black;
 }
 .startTraining {
-  width:85%;
-
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+
+  width: 85%;
 }
 .startTrainingWrapper {
-  width:100%;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
   justify-content: space-between;
+
+  width: 100%;
 }
 
 .users {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 24px;
   justify-content: flex-start;
-  gap:24px;
-  padding:0px 29px;
+  align-items: center;
+
+  padding: 0px 29px;
 }
 .open {
   background: var(--color-white-grey);
@@ -97,48 +104,56 @@
 .dropdown {
   display: flex;
   flex-direction: column;
+  gap: 8px;
+
   width: 100%;
   padding-top: 12px;
-  gap:8px;
 }
 
 .dropdownContainer {
   position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding:14px 8px 8px;
 
+  padding: 14px 8px 8px;
 }
 
 .select {
   display: flex;
-  gap:38px;
+  gap: 38px;
 }
 .select span {
   display: flex;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 .selectItem {
   display: flex;
+  gap: 8px;
   justify-content: center;
   align-items: center;
+
   padding: 11px 8px 8px;
+
   border-radius: 10px;
-  gap:8px;
-  box-shadow: 0 4px 8px 0 rgba(216,219,221, 0.4), 0 6px 20px 0 rgba(216,219,221, 0.4);
+
+  box-shadow: 0 4px 8px 0 rgba(216, 219, 221, 0.4), 0 6px 20px 0 rgba(216, 219, 221, 0.4);
 }
 .selectItem a {
   display: flex;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-.dropdown:hover, .dropdownContainer:hover {
+.dropdown:hover,
+.dropdownContainer:hover {
   cursor: pointer;
 }
 .contestItem:hover {
-  cursor:pointer;
-  background-color: rgba(0, 0, 0, .1);
   border-radius: 8px;
+
+  background-color: rgba(0, 0, 0, 0.1);
+
+  cursor: pointer;
 }

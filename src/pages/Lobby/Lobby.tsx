@@ -1,11 +1,12 @@
-import React, { useState } from "react"
-import { createPortal } from "react-dom"
-import { BlockWrapper } from "../../components/BlockWrapper/BlockWrapper"
-import styles from "./Lobby.module.css"
-import { Arrow } from "../../components/icons/Arrow"
-import { User } from "../../components/icons/User"
 import classNames from "classnames"
-import { Check } from "../../components/icons/Check"
+import React from "react"
+
+import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
+import { Arrow } from "../../ui/icons/Arrow"
+import { Check } from "../../ui/icons/Check"
+import { User } from "../../ui/icons/User"
+
+import styles from "./Lobby.module.css"
 
 const Lobby = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -24,21 +25,35 @@ const Lobby = () => {
       <div className={styles.startTraining}>
         <div className={styles.startTrainingWrapper}>
           <button className={styles.startButton}>
-            <a href="/cockpit">Начать тренировку</a>
+            <a href="/workspace">Начать тренировку</a>
           </button>
           <div className={styles.dropdownContainer}>
             <div className={styles.select} onClick={toggleDropdown}>
               <span>Тест_ШМЯ_2023</span>
-              <Arrow className={classNames(styles.arrow, { [styles.rotated]: isOpen })} width={24} height={24} color={"var(--color-black-typo-primary)"} />
+              <Arrow
+                className={classNames(styles.arrow, { [styles.rotated]: isOpen })}
+                width={24}
+                height={24}
+                color={"var(--color-black-typo-primary)"}
+              />
             </div>
             {isOpen && (
               <div className={styles.dropdown}>
                 <BlockWrapper className={styles.selectItem}>
-                  <Check className={classNames(styles.arrow, { [styles.rotated]: isOpen })} width={20} height={20} color={"var(--color-black-typo-primary)"} />
-                  <a className={styles.selectItemText} href="/cockpit">Тест_ШМЯ_2023</a>
+                  <Check
+                    className={classNames(styles.arrow, { [styles.rotated]: isOpen })}
+                    width={20}
+                    height={20}
+                    color={"var(--color-black-typo-primary)"}
+                  />
+                  <a className={styles.selectItemText} href="/workspace">
+                    Тест_ШМЯ_2023
+                  </a>
                 </BlockWrapper>
                 <BlockWrapper className={styles.selectItem}>
-                  <a className={styles.selectItemText} href="/cockpit">ICPC_Champion</a>
+                  <a className={styles.selectItemText} href="/workspace">
+                    ICPC_Champion
+                  </a>
                 </BlockWrapper>
               </div>
             )}
@@ -51,8 +66,6 @@ const Lobby = () => {
         </div>
       </div>
     </div>
-
-
   )
 }
 

@@ -12,4 +12,3 @@ export const checkAuthorizationToken = () => {
     window.location.replace(urls.yandexPassport)
   }
 }
-

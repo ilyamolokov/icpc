@@ -1,0 +1,11 @@
+.taskSpace {
+  display: grid;
+  grid-template-areas: "tasks tasksDescription editor" "comments tasksDescription editor";
+  grid-template-rows: 490fr 400fr;
+  grid-template-columns: 333fr 451fr 568fr;
+  gap: 20px;
+
+  height: 100%;
+
+  overflow: hidden;
+}

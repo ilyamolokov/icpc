@@ -1,0 +1,34 @@
+.container {
+  grid-area: tasks;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  row-gap: 20px;
+  align-items: center;
+
+  height: 100%;
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  height: 100%;
+  margin-bottom: 20px;
+
+  overflow-y: auto;
+}
+
+.title {
+  margin-bottom: 8px;
+
+  color: var(--color-black-typo-primary);
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 24px; /* 133.333% */
+  text-align: center;
+}
