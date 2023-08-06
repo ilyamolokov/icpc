@@ -1,6 +1,7 @@
 import { InternalAxiosRequestConfig } from "axios"
 
 import { urls } from "../api/urls"
+import { getCookie } from "./getCookie"
 import { setCookie } from "./setCookie"
 
 export const configInterceptor = (config: InternalAxiosRequestConfig) => {
@@ -10,10 +11,17 @@ export const configInterceptor = (config: InternalAxiosRequestConfig) => {
   if (accessToken) {
     const expiresIn = urlParams.get("expires_in")
     setCookie("access_token", accessToken, expiresIn)
+    config.headers["Authorization"] = `Bearer ${accessToken}`
+  } else {
+    if (!document.cookie || !document.cookie.includes("access_token")) {
+      window.location.replace(urls.yandexPassport)
+    } else {
+      const token = getCookie("access_token")
+      if (token) {
+        config.headers["Authorization"] = `Bearer ${token}`
+      }
+    }
   }
 
-  if (!document.cookie || !document.cookie.includes("access_token")) {
-    window.location.replace(urls.yandexPassport)
-  }
   return config
 }

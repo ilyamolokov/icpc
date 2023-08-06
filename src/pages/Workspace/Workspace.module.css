@@ -1,0 +1,10 @@
+.workspace {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  row-gap: 34px;
+
+  height: 100vh;
+  padding: 24px;
+
+  background-color: #f5f5f5;
+}
