@@ -17,7 +17,7 @@ export const TaskDescription = () => {
         <span className={styles.taskStatus}>Не решена</span> {/* В будущем можно вынести в отдельный компонент */}
       </div>
 
-      <div className={styles.taskDescriptionText}>
+      <div className={styles.taskDescriptionContent}>
         <div className={styles.taskTitleBlock}>
           <h3>Считалока 2.0</h3>
           <span>

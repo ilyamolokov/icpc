@@ -55,7 +55,7 @@ export const Modal: FunctionComponent<ModalProps> = ({ isModalOpen, setIsModalOp
               <span>{team.name}</span>
 
               <button className={styles.buttonActive}>
-                <Link to="/cockpit">Присоединиться</Link>
+                <Link to="/lobby">Присоединиться</Link>
               </button>
             </div>
           )
