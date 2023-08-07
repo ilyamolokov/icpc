@@ -9,15 +9,22 @@ import styles from "./TaskSpaceListItem.module.css"
 
 interface TaskSpaceListProps {
   className?: string
-  title: string
+  name: string
+  alias: string
   id: string
   status: string
-  selected: boolean
-  onSelect: () => void
+  onSelect: (id: string, alias: string) => void
+  currentTaskId: string
 }
-export const TaskSpaceListItem: FC<TaskSpaceListProps> = ({ className, title, id, status, selected, onSelect }) => {
+export const TaskSpaceListItem: FC<TaskSpaceListProps> = ({ className, name, id, status, onSelect, currentTaskId, alias }) => {
+  const title = `${alias}. ${name}`
+
+  const isSelected = id === currentTaskId
+
   const [isOpen, setIsOpen] = React.useState(false)
   const toggleDropdown = () => setIsOpen(!isOpen)
+
+  const handleSelect = () => onSelect(id, alias)
 
   return (
     <div className={classNames(styles.container, className, { [styles.open]: isOpen })}>
@@ -28,14 +35,14 @@ export const TaskSpaceListItem: FC<TaskSpaceListProps> = ({ className, title, id
             [styles.linePending]: status === "pending",
             [styles.lineWrong]: status === "wrong",
             [styles.lineDefault]: status === "default",
-            [styles.linePrimary]: selected && status === "default",
+            [styles.linePrimary]: isSelected && status === "default",
           })}
-        ></div>
+        />
         <div
-          onClick={onSelect}
+          onClick={handleSelect}
           className={classNames({
-            [styles.titlePrimary]: selected,
-            [styles.titleSecondary]: !selected,
+            [styles.titlePrimary]: isSelected,
+            [styles.titleSecondary]: !isSelected,
           })}
         >
           {title}

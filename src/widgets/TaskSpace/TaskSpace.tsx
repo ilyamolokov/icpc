@@ -8,13 +8,19 @@ import { TaskSpaceListContainer } from "../TaskSpaceList/TaskSpaceListContainer"
 import styles from "./TaskSpace.module.css"
 
 export const TaskSpace = () => {
-  const [currentTask, setCurrentTask] = useState(null)
+  const [currentTaskId, setCurrentTaskId] = useState(null)
+  const [currentTaskAlias, setCurrentTaskAlias] = useState(null)
+
+  const onSelectTask = (taskId: string, alias: string) => {
+    setCurrentTaskId(taskId)
+    setCurrentTaskAlias(alias)
+  }
 
   return (
     <div className={styles.taskSpace}>
-      <TaskSpaceDescriptionContainer />
+      <TaskSpaceListContainer onSelectTask={onSelectTask} currentTaskId={currentTaskId} />
+      <TaskSpaceDescriptionContainer currentTaskAlias={currentTaskAlias} />
       <TaskSpaceChatContainer />
-      <TaskSpaceListContainer />
       <TaskSpaceEditorContainer />
     </div>
   )

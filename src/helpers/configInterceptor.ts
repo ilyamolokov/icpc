@@ -18,7 +18,7 @@ export const configInterceptor = (config: InternalAxiosRequestConfig) => {
     } else {
       const token = getCookie("access_token")
       if (token) {
-        config.headers["Authorization"] = `Bearer ${token}`
+        config.headers["Authorization"] = `OAuth ${token}`
       }
     }
   }
