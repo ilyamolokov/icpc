@@ -4,6 +4,7 @@ import { FC } from "react"
 import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
 
 import styles from "./TaskSpaceDescription.module.css"
+import { Loading } from "../../ui/Loading/Loading"
 
 interface TaskSpaceDescriptionProps {
   description: string
@@ -13,11 +14,10 @@ export const TaskSpaceDescription: FC<TaskSpaceDescriptionProps> = ({ descriptio
   if (!description) {
     return (
       <BlockWrapper className={styles.blockWrapper}>
-        <div>Загрузка...</div>
+        <Loading/>
       </BlockWrapper>
     )
   }
-
   return (
     <BlockWrapper className={styles.blockWrapper}>
       <div className={styles.taskDescriptionHeader}>

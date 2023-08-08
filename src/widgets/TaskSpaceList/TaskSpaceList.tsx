@@ -6,6 +6,7 @@ import { TaskSpaceListInfo } from "./components/TaskSpaceListInfo/TaskSpaceListI
 import { TaskSpaceListItem } from "./components/TaskSpaceListItem/TaskSpaceListItem"
 
 import styles from "./TaskSpaceList.module.css"
+import { Loading } from "../../ui/Loading/Loading"
 
 interface TaskSpaceListProps {
   tasks: { alias: string; id: string; name: string }[]
@@ -16,8 +17,8 @@ interface TaskSpaceListProps {
 export const TaskSpaceList: FC<TaskSpaceListProps> = ({ tasks, currentTaskId, onSelectTask }) => {
   if (!tasks)
     return (
-      <BlockWrapper className={styles.container}>
-        <div>Загрузка...</div>
+      <BlockWrapper className={styles.blockWrapper}>
+        <Loading/>
       </BlockWrapper>
     )
 

@@ -13,9 +13,9 @@ export const TaskSpaceListContainer: FC<TaskSpaceListContainerProps> = ({ curren
   const [tasks, setTasks] = useState(null)
 
   const handleSubmit = (tasks: any[]) => {
+    tasks.sort((a, b) => a.alias.localeCompare(b.alias))
     setTasks(tasks)
     onSelectTask(tasks[0].id, tasks[0].alias)
-    console.log(tasks)
   }
 
   useEffect(() => {
