@@ -27,4 +27,4 @@ class Api {
   }
 }
 
-export const api = new Api(urls.base)
+export const api = new Api(urls.openApiUrl)

@@ -15,6 +15,7 @@ export const TaskSpaceListContainer: FC<TaskSpaceListContainerProps> = ({ curren
   const handleSubmit = (tasks: any[]) => {
     setTasks(tasks)
     onSelectTask(tasks[0].id, tasks[0].alias)
+    console.log(tasks)
   }
 
   useEffect(() => {
