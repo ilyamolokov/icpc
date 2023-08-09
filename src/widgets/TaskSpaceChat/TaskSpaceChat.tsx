@@ -19,6 +19,8 @@ export const TaskSpaceChat: FC<TaskSpaceChatProps> = ({ messages, onSendMessage 
     maxRows: 10,
   })
 
+  const textLog = React.useRef(null);
+
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const textareaLineHeight = 24
     const { minRows, maxRows } = state
@@ -47,6 +49,10 @@ export const TaskSpaceChat: FC<TaskSpaceChatProps> = ({ messages, onSendMessage 
     if (event.key === "Enter") {
       event.preventDefault()
       onSendMessage(state.message)
+      setState({
+        ...state,
+        message: '',
+      })
     }
   }
 
