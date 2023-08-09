@@ -1,26 +1,45 @@
 import * as React from "react"
-import { FC, useEffect, useState } from "react"
-
+import { FC, useCallback, useEffect, useState } from "react"
 import { api } from "../../api"
 import { TaskSpaceList } from "./TaskSpaceList"
+import { useNavigate, useParams } from "react-router-dom"
+import { useQuery } from "react-query"
+import { Loading } from "../../ui/Loading/Loading"
+import { Task } from "../../types/types"
+import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
 
-interface TaskSpaceListContainerProps {
-  currentTaskId: string
-  onSelectTask: (taskId: string, alias: string) => void
-}
 
-export const TaskSpaceListContainer: FC<TaskSpaceListContainerProps> = ({ currentTaskId, onSelectTask }) => {
-  const [tasks, setTasks] = useState(null)
+export const TaskSpaceListContainer = () => {
+  const { id, alias: currentAlias } = useParams();
+  const navigate = useNavigate();
+  const contestId = '50596' // мокаем contestId
 
-  const handleSubmit = (tasks: any[]) => {
-    tasks.sort((a, b) => a.alias.localeCompare(b.alias))
-    setTasks(tasks)
-    onSelectTask(tasks[0].id, tasks[0].alias)
-  }
+  const { data: tasks, isLoading, isError } = useQuery(
+    'tasks',
+    () => api.getTasks(contestId),
+    {
+      onSuccess: (tasks) => {
+        navigate(`/workspace/${contestId}/${tasks[0].alias}`);
+      }
+    }
+  );
 
-  useEffect(() => {
-    api.getTasks("50596").then(handleSubmit).catch(console.log)
+  const handleTaskSpaceClick = useCallback((task: Task) => {
+    navigate(`/workspace/${contestId}/${task.alias}`);
   }, [])
 
-  return <TaskSpaceList tasks={tasks} currentTaskId={currentTaskId} onSelectTask={onSelectTask} />
+  if (isLoading) {
+    return (<BlockWrapper>
+      <Loading />
+    </BlockWrapper>)
+
+  }
+
+  if (isError) {
+    return (<BlockWrapper>
+      <div>error</div>
+    </BlockWrapper>)
+  }
+
+  return <TaskSpaceList tasks={tasks} handleTaskSpaceClick={handleTaskSpaceClick} contestId={contestId} currentAlias={currentAlias} />
 }

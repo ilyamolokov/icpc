@@ -1,30 +1,34 @@
 import classNames from "classnames"
-import * as React from "react"
+import React, {useState} from "react"
 import { FC } from "react"
 
 import { Arrow } from "../../../../ui/icons/Arrow"
 import { User } from "../../../../ui/icons/User"
 
 import styles from "./TaskSpaceListItem.module.css"
+import { Task } from "../../../../types/types"
 
 interface TaskSpaceListProps {
   className?: string
-  name: string
-  alias: string
-  id: string
+  task:Task
+  handleTaskSpaceClick:any
+  // name: string
+  // alias: string
+  // id: string
   status: string
-  onSelect: (id: string, alias: string) => void
-  currentTaskId: string
+  // onSelect: (id: string, alias: string) => void
+  // currentTaskId: string
 }
-export const TaskSpaceListItem: FC<TaskSpaceListProps> = ({ className, name, id, status, onSelect, currentTaskId, alias }) => {
-  const title = `${alias}. ${name}`
+export const TaskSpaceListItem: FC<TaskSpaceListProps> = ({ className, task, handleTaskSpaceClick, status }) => {
+  const title = `${task.alias}. ${task.name}`
+  // const { id:contestId, alias: currentAlias } = useParams();
 
-  const isSelected = id === currentTaskId
+  // const isSelected = id === currentTaskId
 
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   const toggleDropdown = () => setIsOpen(!isOpen)
 
-  const handleSelect = () => onSelect(id, alias)
+  // const handleSelect = () => onSelect(id, alias)
 
   return (
     <div className={classNames(styles.container, className, { [styles.open]: isOpen })}>
@@ -35,14 +39,14 @@ export const TaskSpaceListItem: FC<TaskSpaceListProps> = ({ className, name, id,
             [styles.linePending]: status === "pending",
             [styles.lineWrong]: status === "wrong",
             [styles.lineDefault]: status === "default",
-            [styles.linePrimary]: isSelected && status === "default",
+            // [styles.linePrimary]: isSelected && status === "default",
           })}
         />
         <div
-          onClick={handleSelect}
+          onClick={()=>handleTaskSpaceClick(task)}
           className={classNames({
-            [styles.titlePrimary]: isSelected,
-            [styles.titleSecondary]: !isSelected,
+            // [styles.titlePrimary]: isSelected,
+            // [styles.titleSecondary]: !isSelected,
           })}
         >
           {title}

@@ -1,19 +1,17 @@
-import * as React from "react"
-import { FC, useEffect, useState } from "react"
+import React, { useState } from "react"
 
 import { api } from "../../api"
 import { TaskSpaceDescription } from "./TaskSpaceDescription"
+import { useParams } from "react-router-dom"
+import { useQuery } from "react-query"
 
-interface TaskSpaceDescriptionContainerProps {
-  currentTaskAlias: string
-}
+export const TaskSpaceDescriptionContainer = () => {
+  const {id:contestId, alias: currentAlias} = useParams();
+  
+  const { data:currentTaskDescription, isLoading, isError, refetch} = useQuery(
+    ['currentTaskAlias', currentAlias],
+    () => api.getTaskStatement(contestId, currentAlias),
+  );
 
-export const TaskSpaceDescriptionContainer: FC<TaskSpaceDescriptionContainerProps> = ({ currentTaskAlias }) => {
-  const [description, setDescription] = useState(null)
-
-  useEffect(() => {
-    api.getTaskStatement("50596", currentTaskAlias).then(setDescription).catch(console.log)
-  }, [currentTaskAlias])
-
-  return <TaskSpaceDescription description={description} />
+  return <TaskSpaceDescription currentTaskDescription={currentTaskDescription} isLoading={isLoading} isError={isError} refetch={refetch}/>
 }

@@ -4,6 +4,7 @@ import { checkAuthorizationToken } from "../helpers/checkAuthorizationToken"
 import { configInterceptor } from "../helpers/configInterceptor"
 import { errorInterceptor } from "../helpers/errorInterceptor"
 import { urls } from "./urls"
+import { Tasks } from "../types/types"
 
 class Api {
   private readonly client: AxiosInstance

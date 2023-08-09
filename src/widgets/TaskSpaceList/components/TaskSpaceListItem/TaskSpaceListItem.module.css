@@ -3,7 +3,7 @@
   gap: 24px;
   justify-content: space-between;
   align-items: flex-start;
-
+  cursor: pointer;
   width: 100%;
 }
 
@@ -92,7 +92,7 @@
   font-size: 16px;
   line-height: 24px; /* 150% */
 
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 .titleSecondary {
   color: var(--color-grey-secondary);
@@ -137,6 +137,9 @@
 .lineTitleBlock {
   display: flex;
   gap: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .open {

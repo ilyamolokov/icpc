@@ -5,18 +5,29 @@ import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
 
 import styles from "./TaskSpaceDescription.module.css"
 import { Loading } from "../../ui/Loading/Loading"
+import { Task } from "../../types/types"
 
-interface TaskSpaceDescriptionProps {
-  description: string
+interface Props {
+  currentTaskDescription: any,
+  isLoading: boolean
+  isError: boolean
+  refetch: () => {}
 }
 
-export const TaskSpaceDescription: FC<TaskSpaceDescriptionProps> = ({ description }) => {
-  if (!description) {
-    return (
-      <BlockWrapper className={styles.blockWrapper}>
-        <Loading/>
-      </BlockWrapper>
-    )
+export const TaskSpaceDescription: FC<Props> = ({ currentTaskDescription, isLoading, isError, refetch }) => {
+
+  if (isLoading) {
+    return (<BlockWrapper className={styles.blockWrapper}>
+      <Loading />
+    </BlockWrapper>)
+
+  }
+
+  if (isError) {
+    return (<BlockWrapper className={styles.blockWrapper}>
+      <div>error</div>
+    </BlockWrapper>)
+
   }
   return (
     <BlockWrapper className={styles.blockWrapper}>
@@ -31,7 +42,7 @@ export const TaskSpaceDescription: FC<TaskSpaceDescriptionProps> = ({ descriptio
       </div>
 
       <div className={styles.taskDescriptionContent}>
-        <div dangerouslySetInnerHTML={{ __html: description }} />
+        <div dangerouslySetInnerHTML={{ __html: currentTaskDescription }} />
         {/*  <div className={styles.taskTitleBlock}>*/}
         {/*    <h3>Считалока 2.0</h3>*/}
         {/*    <span>*/}

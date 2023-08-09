@@ -4,6 +4,9 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+
+    border-radius: 16px;
+    background: var(--color-white);
 }
 
 .loader {
@@ -27,7 +30,6 @@
 .loader::after,
 .loader::before {
     content: "";
-    background: white;
     position: absolute;
     display: inline-block;
     width: 100%;

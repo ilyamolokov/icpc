@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useMemo, useState } from "react"
 
 import { TaskSpaceChatContainer } from "../TaskSpaceChat/TaskSpaceChatContainer"
 import { TaskSpaceDescriptionContainer } from "../TaskSpaceDescription/TaskSpaceDescriptionContainer"
@@ -8,18 +8,12 @@ import { TaskSpaceListContainer } from "../TaskSpaceList/TaskSpaceListContainer"
 import styles from "./TaskSpace.module.css"
 
 export const TaskSpace = () => {
-  const [currentTaskId, setCurrentTaskId] = useState(null)
-  const [currentTaskAlias, setCurrentTaskAlias] = useState(null)
-
-  const onSelectTask = (taskId: string, alias: string) => {
-    setCurrentTaskId(taskId)
-    setCurrentTaskAlias(alias)
-  }
 
   return (
     <div className={styles.taskSpace}>
-      <TaskSpaceListContainer onSelectTask={onSelectTask} currentTaskId={currentTaskId} />
-      <TaskSpaceDescriptionContainer currentTaskAlias={currentTaskAlias} />
+        <TaskSpaceListContainer />
+        <TaskSpaceDescriptionContainer />
+
       <TaskSpaceChatContainer />
       <TaskSpaceEditorContainer />
     </div>

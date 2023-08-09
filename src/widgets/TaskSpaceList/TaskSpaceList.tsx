@@ -7,14 +7,18 @@ import { TaskSpaceListItem } from "./components/TaskSpaceListItem/TaskSpaceListI
 
 import styles from "./TaskSpaceList.module.css"
 import { Loading } from "../../ui/Loading/Loading"
+import { Tasks, Task } from "../../types/types"
 
-interface TaskSpaceListProps {
-  tasks: { alias: string; id: string; name: string }[]
-  currentTaskId: string
-  onSelectTask: (taskId: string, alias: string) => void
+interface Props {
+  tasks:Tasks
+  handleTaskSpaceClick:any
+  contestId:string
+  currentAlias:string
+//   contestId: string
+//   onSelectTask: (taskId: string, alias: string) => void
 }
 
-export const TaskSpaceList: FC<TaskSpaceListProps> = ({ tasks, currentTaskId, onSelectTask }) => {
+export const TaskSpaceList:FC<Props> = ({ tasks, handleTaskSpaceClick, contestId, currentAlias }) => {
   if (!tasks)
     return (
       <BlockWrapper className={styles.blockWrapper}>
@@ -26,15 +30,12 @@ export const TaskSpaceList: FC<TaskSpaceListProps> = ({ tasks, currentTaskId, on
     <BlockWrapper className={styles.container}>
       <h3 className={styles.title}>{"Задачи"}</h3>
       <div className={styles.tasks}>
-        {tasks.map(({ id, name, alias }) => (
+        {tasks.map((task) => (
           <TaskSpaceListItem
-            key={id}
-            name={name}
-            alias={alias}
-            id={id}
+            key={task.id}
+            task={task}
+            handleTaskSpaceClick={handleTaskSpaceClick}
             status="done"
-            onSelect={onSelectTask}
-            currentTaskId={currentTaskId}
           />
         ))}
       </div>
