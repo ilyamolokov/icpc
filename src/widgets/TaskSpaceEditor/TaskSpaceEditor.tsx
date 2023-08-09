@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, {forwardRef} from "react"
 import { FC } from "react"
 
 import AceEditor from "react-ace"
@@ -10,13 +10,18 @@ import { Button } from "../../ui/Button/Button"
 import { TaskSpaceEditorSelect } from "./components/TaskSpaceEditorSelect/TaskSpaceEditorSelect"
 
 import styles from "./TaskSpaceEditor.module.css"
+import { EditorHandler } from "../../sockets/socket"
 
-export const TaskSpaceEditor: FC = () => {
+interface Props {
+  onCodeChange:(code: string) => void
+  codeState:string
+}
+
+export const TaskSpaceEditor: FC<Props> = ({onCodeChange,codeState}) => {
   React.useEffect(() => {
     const gutter = document.querySelector<HTMLDivElement>(".ace_gutter")
     gutter.style.backgroundColor = "#fff"
   }, [])
-
   return (
     <BlockWrapper className={styles.blockWrapper}>
       <div className={styles.header}>
@@ -24,9 +29,11 @@ export const TaskSpaceEditor: FC = () => {
       </div>
       <AceEditor
         mode="javascript"
+        value={codeState}
         width="100%"
         height="100%"
         showGutter={true}
+        onChange={(code)=>onCodeChange(code)}
         setOptions={{
           useWorker: false,
           fontSize: 14,

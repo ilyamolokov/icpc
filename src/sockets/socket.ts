@@ -67,9 +67,18 @@ class Socket {
     this.send(EventName.Message, { message, taskAlias })
   }
 
+  public sendCode(code: string, taskAlias: string) {
+    this.send(EventName.Editor, { code, taskAlias })
+  }
+
   public subscribeMessage(taskAlias: string, handler: MessageHandler) {
     // @ts-ignore
     this.subscribe({ eventName: EventName.Message, taskAlias, handler })
+  }
+
+  public subscribeEditor(taskAlias: string, handler: EditorHandler) {
+    // @ts-ignore
+    this.subscribe({ eventName: EventName.Editor, taskAlias, handler })
   }
 
   private send(type: EventNameType, payload: EventPayload) {
