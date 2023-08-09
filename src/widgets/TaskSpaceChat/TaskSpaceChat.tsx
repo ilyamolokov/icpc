@@ -6,7 +6,12 @@ import { TaskSpaceChatMessage } from "./components/TaskSpaceChatMessage/TaskSpac
 
 import styles from "./TaskSpaceChat.module.css"
 
-export const TaskSpaceChat: FC = () => {
+interface TaskSpaceChatProps {
+  messages: string[]
+  onSendMessage: (message: string) => void
+}
+
+export const TaskSpaceChat: FC<TaskSpaceChatProps> = ({ messages, onSendMessage }) => {
   const [state, setState] = React.useState({
     message: "",
     rows: 1,
@@ -41,8 +46,7 @@ export const TaskSpaceChat: FC = () => {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === "Enter") {
       event.preventDefault()
-      console.log(state.message)
-      setState({ ...state, message: "", rows: 1 })
+      onSendMessage(state.message)
     }
   }
 
@@ -50,23 +54,9 @@ export const TaskSpaceChat: FC = () => {
     <BlockWrapper className={styles.blockWrapper}>
       <span className={styles.commentsTitle}>Комментарии к задаче</span>
       <div className={styles.chat}>
-        <TaskSpaceChatMessage
-          username={"Ilya"}
-          message={"Hello from Almaty Hello from Almaty Hello from Almaty Hello from Almaty Hello from Almaty "}
-        />
-        <TaskSpaceChatMessage username={"Ruslan"} message={"Salam"} />
-        <TaskSpaceChatMessage username={"Yaroslav"} message={"Popolam"} />
-        <TaskSpaceChatMessage username={"Yaroslav"} message={"Popolam"} />
-        <TaskSpaceChatMessage username={"Yaroslav"} message={"Popolam"} />
-        <TaskSpaceChatMessage username={"Yaroslav"} message={"Popolam"} />
-        <TaskSpaceChatMessage username={"Yaroslav"} message={"Popolam"} />
-        <TaskSpaceChatMessage username={"Yaroslav"} message={"Popolam"} />
-        <TaskSpaceChatMessage username={"Yaroslav"} message={"Popolam"} />
-        <TaskSpaceChatMessage username={"Yaroslav"} message={"Popolam"} />
-        <TaskSpaceChatMessage username={"Yaroslav"} message={"Popolam"} />
-        <TaskSpaceChatMessage username={"Yaroslav"} message={"Popolam"} />
-        <TaskSpaceChatMessage username={"Yaroslav"} message={"Popolam"} />
-        <TaskSpaceChatMessage username={"Yaroslav"} message={"Popolam"} />
+        {messages.map((message, index) => (
+          <TaskSpaceChatMessage key={index} username={"Ruslan"} message={message} />
+        ))}
       </div>
       <textarea
         rows={state.rows}

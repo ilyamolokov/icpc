@@ -11,9 +11,8 @@ export const TaskSpace = () => {
 
   return (
     <div className={styles.taskSpace}>
-        <TaskSpaceListContainer />
-        <TaskSpaceDescriptionContainer />
-
+      <TaskSpaceListContainer />
+      <TaskSpaceDescriptionContainer />
       <TaskSpaceChatContainer />
       <TaskSpaceEditorContainer />
     </div>

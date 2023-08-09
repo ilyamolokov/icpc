@@ -18,7 +18,7 @@ export const TaskSpaceListContainer = () => {
     'tasks',
     () => api.getTasks(contestId),
     {
-      onSuccess: (tasks) => {
+      onSuccess: (tasks: any[]) => {
         navigate(`/workspace/${contestId}/${tasks[0].alias}`);
       }
     }
