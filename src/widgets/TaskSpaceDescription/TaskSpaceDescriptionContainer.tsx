@@ -7,7 +7,7 @@ import { useQuery } from "react-query"
 
 export const TaskSpaceDescriptionContainer = () => {
   const {id:contestId, alias: currentAlias} = useParams();
-  
+
   const { data:currentTaskDescription, isLoading, isError, refetch} = useQuery(
     ['currentTaskAlias', currentAlias],
     () => api.getTaskStatement(contestId, currentAlias),
