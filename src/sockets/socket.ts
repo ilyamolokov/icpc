@@ -1,38 +1,10 @@
-export enum EventName {
-  Message = 'message',
-}
-
-type EventNameType = `${EventName}`
-
-interface EventPayload {
-  taskAlias?: string
-  message?: string
-}
-
-interface Data {
-  type: EventNameType
-  payload: EventPayload
-}
-
-type Handler<P = any> = (param: P) => void
-
-export type MessageHandler = Handler<string>
-
-interface Handlers {
-  [EventName.Message]: Record<string, MessageHandler>
-}
+import { Data, EventName, EventNameType, EventPayload, Handler, Handlers, MessageHandler, subscribeParams } from "../types/types"
 
 const initialHandlers: Handlers = {
   [EventName.Message]: {}
 }
 
 const taskEvents = new Set<EventNameType>([EventName.Message])
-
-interface subscribeParams {
-  eventName: EventNameType
-  handler: MessageHandler
-  taskAlias?: string
-}
 
 class Socket {
   private readonly client: WebSocket
