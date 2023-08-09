@@ -24,10 +24,10 @@ interface Data {
   payload?: EventPayload
 }
 
-export type MessageHandler = (payload: MessageEventPayload) => void
-export type EditorHandler = (payload: EditorEventPayload) => void
+type Handler<Payload = EventPayload> = (payload: Payload) => void
 
-type Handler = MessageHandler | EditorHandler
+export type MessageHandler = Handler<MessageEventPayload>
+export type EditorHandler = Handler<EditorEventPayload>
 
 interface Handlers {
   [EventName.Message]: Record<string, MessageHandler>
@@ -50,13 +50,14 @@ class Socket {
   private readonly handlers: Handlers
 
   constructor() {
-    this.client = new WebSocket('ws://51.250.65.5:8000/ws/lobby?team_id=12&user_id=1')
+    this.client = new WebSocket('ws://51.250.65.5:8080/ws/lobby?team_id=12&user_id=1')
     this.handlers = initialHandlers
 
     this.client.onmessage = (evt: MessageEvent<string>) => {
       const { type, payload }: Data = JSON.parse(evt.data)
 
       if (payload && payload.taskAlias) {
+        // @ts-ignore
         this.handlers[type][payload.taskAlias](payload)
       }
     }
@@ -67,7 +68,8 @@ class Socket {
   }
 
   public subscribeMessage(taskAlias: string, handler: MessageHandler) {
-    this.subscribe({ eventName: EventName.Message, taskAlias, handler})
+    // @ts-ignore
+    this.subscribe({ eventName: EventName.Message, taskAlias, handler })
   }
 
   private send(type: EventNameType, payload: EventPayload) {
