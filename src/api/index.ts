@@ -26,6 +26,9 @@ class Api {
   async getProblemStatement(contestId: string, alias: string) {
     return await this.get(`contests/${contestId}/problems/${alias}/statement`)
   }
+  async getMe() {
+    return await this.get('user/me')
+  }
 }
 
 export const api = new Api(urls.openApiUrl)
