@@ -20,6 +20,6 @@ export interface Task {
     name: string
     problemType: string
     statements: Statement[]
-    testCount: any
+    testCount: number | null
 }
 export type Tasks = Task[]
