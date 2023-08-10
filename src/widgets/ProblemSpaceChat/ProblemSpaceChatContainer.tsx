@@ -2,7 +2,7 @@ import * as React from "react"
 import { FC, useEffect, useState } from "react"
 
 import { ProblemSpaceChat } from "./ProblemSpaceChat"
-import { MessageHandler, socket } from "../../sockets/socket"
+import { MessageHandler, socket } from "../../sockets"
 import { useParams } from "react-router"
 
 export const ProblemSpaceChatContainer: FC = () => {
@@ -15,7 +15,7 @@ export const ProblemSpaceChatContainer: FC = () => {
   }
 
   const onSendMessage = (message: string) => {
-    socket.sendMessage(message, alias)
+    socket.sendMessage({ message, problemAlias: alias })
   }
 
   useEffect(() => {

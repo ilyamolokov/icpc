@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, {forwardRef} from "react"
 import { FC } from "react"
 
 import AceEditor from "react-ace"
@@ -11,12 +11,16 @@ import { ProblemSpaceEditorSelect } from "./components/ProblemSpaceEditorSelect/
 
 import styles from "./ProblemSpaceEditor.module.css"
 
-export const ProblemSpaceEditor: FC = () => {
+interface Props {
+  onCodeChange:(code: string) => void
+  codeState:string
+}
+
+export const ProblemSpaceEditor: FC<Props> = ({onCodeChange,codeState}) => {
   React.useEffect(() => {
     const gutter = document.querySelector<HTMLDivElement>(".ace_gutter")
     gutter.style.backgroundColor = "#fff"
   }, [])
-
   return (
     <BlockWrapper className={styles.blockWrapper}>
       <div className={styles.header}>
@@ -24,9 +28,11 @@ export const ProblemSpaceEditor: FC = () => {
       </div>
       <AceEditor
         mode="javascript"
+        value={codeState}
         width="100%"
         height="100%"
         showGutter={true}
+        onChange={(code)=>onCodeChange(code)}
         setOptions={{
           useWorker: false,
           fontSize: 14,
