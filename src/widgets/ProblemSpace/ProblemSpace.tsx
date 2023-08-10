@@ -8,7 +8,6 @@ import { ProblemSpaceListContainer } from "../ProblemSpaceList/ProblemSpaceListC
 import styles from "./ProblemSpace.module.css"
 
 export const ProblemSpace = () => {
-
   return (
     <div className={styles.problemSpace}>
       <ProblemSpaceListContainer />

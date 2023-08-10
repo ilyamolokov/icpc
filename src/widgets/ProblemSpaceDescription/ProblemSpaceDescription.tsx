@@ -1,33 +1,34 @@
 import * as React from "react"
 import { FC } from "react"
 
+import { Problem } from "../../types/types"
 import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
+import { Loading } from "../../ui/Loading/Loading"
 
 import styles from "./ProblemSpaceDescription.module.css"
-import { Loading } from "../../ui/Loading/Loading"
-import { Problem } from "../../types/types"
 
 interface Props {
-  currentProblemDescription: string,
+  currentProblemDescription: string
   isLoading: boolean
   isError: boolean
   refetch: () => {}
 }
 
 export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, isLoading, isError, refetch }) => {
-
   if (isLoading) {
-    return (<BlockWrapper className={styles.blockWrapper}>
-      <Loading />
-    </BlockWrapper>)
-
+    return (
+      <BlockWrapper className={styles.blockWrapper}>
+        <Loading />
+      </BlockWrapper>
+    )
   }
 
   if (isError) {
-    return (<BlockWrapper className={styles.blockWrapper}>
-      <div>error</div>
-    </BlockWrapper>)
-
+    return (
+      <BlockWrapper className={styles.blockWrapper}>
+        <div>error</div>
+      </BlockWrapper>
+    )
   }
   return (
     <BlockWrapper className={styles.blockWrapper}>

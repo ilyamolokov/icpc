@@ -19,7 +19,7 @@ export const ProblemSpaceChat: FC<ProblemSpaceChatProps> = ({ messages, onSendMe
     maxRows: 10,
   })
 
-  const textLog = React.useRef(null);
+  const textLog = React.useRef(null)
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const textareaLineHeight = 24
@@ -51,7 +51,7 @@ export const ProblemSpaceChat: FC<ProblemSpaceChatProps> = ({ messages, onSendMe
       onSendMessage(state.message)
       setState({
         ...state,
-        message: '',
+        message: "",
       })
     }
   }

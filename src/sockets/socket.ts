@@ -5,8 +5,10 @@ import {
   Handler,
   Handlers,
   initialHandlers,
-  MessageHandler, MessagePayload,
-  SubscribeParams, Type,
+  MessageHandler,
+  MessagePayload,
+  SubscribeParams,
+  Type,
   Types,
 } from "./types"
 
@@ -15,7 +17,7 @@ class Socket {
   private readonly handlers: Handlers
 
   constructor() {
-    this.client = new WebSocket('ws://51.250.65.5:8080/ws/lobby?team_id=8&user_id=1')
+    this.client = new WebSocket("ws://51.250.65.5:8080/ws/lobby?team_id=8&user_id=1")
     this.handlers = initialHandlers
 
     this.client.onmessage = (evt: MessageEvent<string>) => {

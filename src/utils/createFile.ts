@@ -4,4 +4,3 @@ export const createFile = (code: string) => {
   formData.append("file", blob, "code.txt")
   return formData
 }
-

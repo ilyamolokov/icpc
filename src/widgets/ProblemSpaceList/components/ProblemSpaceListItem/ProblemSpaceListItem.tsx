@@ -2,11 +2,11 @@ import classNames from "classnames"
 import React, { useState } from "react"
 import { FC } from "react"
 
+import { Problem } from "../../../../types/types"
 import { Arrow } from "../../../../ui/icons/Arrow"
 import { User } from "../../../../ui/icons/User"
 
 import styles from "./ProblemSpaceListItem.module.css"
-import { Problem } from "../../../../types/types"
 
 interface ProblemSpaceListProps {
   className?: string

@@ -1,9 +1,9 @@
 import * as React from "react"
 import { FC, useEffect, useState } from "react"
-
-import { ProblemSpaceChat } from "./ProblemSpaceChat"
-import { MessageHandler, socket } from "../../sockets"
 import { useParams } from "react-router"
+
+import { MessageHandler, socket } from "../../sockets"
+import { ProblemSpaceChat } from "./ProblemSpaceChat"
 
 export const ProblemSpaceChatContainer: FC = () => {
   const { alias } = useParams()
@@ -11,7 +11,7 @@ export const ProblemSpaceChatContainer: FC = () => {
   const [messages, setMessages] = useState<string[]>([])
 
   const messageEventHandler: MessageHandler = ({ message }) => {
-    setMessages(prevState => [...prevState, message])
+    setMessages((prevState) => [...prevState, message])
   }
 
   const onSendMessage = (message: string) => {

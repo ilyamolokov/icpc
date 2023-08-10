@@ -1,10 +1,10 @@
 import axios, { AxiosInstance } from "axios"
 
+import { urls } from "../constants/urls"
 import { checkAuthorizationToken } from "../helpers/checkAuthorizationToken"
 import { configInterceptor } from "../helpers/configInterceptor"
 import { errorInterceptor } from "../helpers/errorInterceptor"
 import { createFile } from "../utils/createFile"
-import { urls } from "./urls"
 
 class Api {
   private readonly client: AxiosInstance
