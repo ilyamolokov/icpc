@@ -10,7 +10,6 @@ import { Button } from "../../ui/Button/Button"
 import { TaskSpaceEditorSelect } from "./components/TaskSpaceEditorSelect/TaskSpaceEditorSelect"
 
 import styles from "./TaskSpaceEditor.module.css"
-import { EditorHandler } from "../../sockets/socket"
 
 interface Props {
   onCodeChange:(code: string) => void

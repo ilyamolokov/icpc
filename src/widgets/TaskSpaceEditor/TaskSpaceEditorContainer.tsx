@@ -3,7 +3,7 @@ import { FC } from "react"
 
 import { TaskSpaceEditor } from "./TaskSpaceEditor"
 import { useParams } from "react-router-dom";
-import { EditorHandler, socket } from "../../sockets/socket"
+import { CodeHandler, socket } from "../../sockets"
 
 
 export const TaskSpaceEditorContainer: FC = () => {
@@ -11,9 +11,9 @@ export const TaskSpaceEditorContainer: FC = () => {
   const [codeState, setCodeState] = useState<string>('');
 
   const onCodeChange = (code:string) => {
-      socket.sendCode(code, alias)
+      socket.sendCode({ code, problemAlias: alias })
   }
-  const editorEventhandler:EditorHandler = ({code}) => {
+  const editorEventhandler: CodeHandler = ({code}) => {
     setCodeState(code)
   }
   useEffect(() => {
