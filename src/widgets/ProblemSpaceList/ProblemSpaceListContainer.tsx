@@ -1,30 +1,30 @@
 import * as React from "react"
 import { FC, useCallback, useEffect, useState } from "react"
 import { api } from "../../api"
-import { TaskSpaceList } from "./TaskSpaceList"
+import { ProblemSpaceList } from "./ProblemSpaceList"
 import { useNavigate, useParams } from "react-router-dom"
 import { useQuery } from "react-query"
 import { Loading } from "../../ui/Loading/Loading"
-import { Task, Tasks } from "../../types/types"
+import { Problem, Problems } from "../../types/types"
 import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
 
-export const TaskSpaceListContainer = () => {
+export const ProblemSpaceListContainer = () => {
   const { id, alias: currentAlias } = useParams();
   const navigate = useNavigate();
   const contestId = '50596' // мокаем contestId
 
-  const { data: tasks, isLoading, isError } = useQuery(
-    'tasks',
-    () => api.getTasks(contestId),
+  const { data: problems, isLoading, isError } = useQuery(
+    'problems',
+    () => api.getProblems(contestId),
     {
-      onSuccess: (tasks: Tasks) => {
-        navigate(`/workspace/${contestId}/${tasks[0].alias}`);
+      onSuccess: (problems: Problems) => {
+        navigate(`/workspace/${contestId}/${problems[0].alias}`);
       }
     }
   );
 
-  const handleTaskSpaceClick = useCallback((task: Task) => {
-    navigate(`/workspace/${contestId}/${task.alias}`);
+  const handleProblemSpaceClick = useCallback((problem: Problem) => {
+    navigate(`/workspace/${contestId}/${problem.alias}`);
   }, [])
 
   if (isLoading) {
@@ -39,6 +39,5 @@ export const TaskSpaceListContainer = () => {
       <div>error</div>
     </BlockWrapper>)
   }
-  console.log(tasks)
-  return <TaskSpaceList tasks={tasks} handleTaskSpaceClick={handleTaskSpaceClick} contestId={contestId} currentAlias={currentAlias} />
+  return <ProblemSpaceList problems={problems} handleProblemSpaceClick={handleProblemSpaceClick} contestId={contestId} currentAlias={currentAlias} />
 }

@@ -7,11 +7,11 @@ import "ace-builds/src-noconflict/mode-javascript"
 
 import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
 import { Button } from "../../ui/Button/Button"
-import { TaskSpaceEditorSelect } from "./components/TaskSpaceEditorSelect/TaskSpaceEditorSelect"
+import { ProblemSpaceEditorSelect } from "./components/ProblemSpaceEditorSelect/ProblemSpaceEditorSelect"
 
-import styles from "./TaskSpaceEditor.module.css"
+import styles from "./ProblemSpaceEditor.module.css"
 
-export const TaskSpaceEditor: FC = () => {
+export const ProblemSpaceEditor: FC = () => {
   React.useEffect(() => {
     const gutter = document.querySelector<HTMLDivElement>(".ace_gutter")
     gutter.style.backgroundColor = "#fff"
@@ -20,7 +20,7 @@ export const TaskSpaceEditor: FC = () => {
   return (
     <BlockWrapper className={styles.blockWrapper}>
       <div className={styles.header}>
-        <TaskSpaceEditorSelect />
+        <ProblemSpaceEditorSelect />
       </div>
       <AceEditor
         mode="javascript"
@@ -34,7 +34,7 @@ export const TaskSpaceEditor: FC = () => {
       />
       <div className={styles.footer}>
         <span className={styles.alarm}>Редактор бездействует 1 минуту</span>
-        <Button title="Отправить" type="button" onClick={() => {}} disabled={false} />
+        <Button title="Отправить" type="button" onClick={() => { }} disabled={false} />
       </div>
     </BlockWrapper>
   )

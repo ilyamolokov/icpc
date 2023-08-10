@@ -1,29 +1,29 @@
 import classNames from "classnames"
-import React, {useState} from "react"
+import React, { useState } from "react"
 import { FC } from "react"
 
 import { Arrow } from "../../../../ui/icons/Arrow"
 import { User } from "../../../../ui/icons/User"
 
-import styles from "./TaskSpaceListItem.module.css"
-import { Task } from "../../../../types/types"
+import styles from "./ProblemSpaceListItem.module.css"
+import { Problem } from "../../../../types/types"
 
-interface TaskSpaceListProps {
+interface ProblemSpaceListProps {
   className?: string
-  task:Task
-  handleTaskSpaceClick:(task: Task) => void
+  problem: Problem
+  handleProblemSpaceClick: (problem: Problem) => void
   // name: string
   // alias: string
   // id: string
   status: string
   // onSelect: (id: string, alias: string) => void
-  // currentTaskId: string
+  // currentProblemId: string
 }
-export const TaskSpaceListItem: FC<TaskSpaceListProps> = ({ className, task, handleTaskSpaceClick, status }) => {
-  const title = `${task.alias}. ${task.name}`
+export const ProblemSpaceListItem: FC<ProblemSpaceListProps> = ({ className, problem, handleProblemSpaceClick, status }) => {
+  const title = `${problem.alias}. ${problem.name}`
   // const { id:contestId, alias: currentAlias } = useParams();
 
-  // const isSelected = id === currentTaskId
+  // const isSelected = id === currentProblemId
 
   const [isOpen, setIsOpen] = useState(false)
   const toggleDropdown = () => setIsOpen(!isOpen)
@@ -43,7 +43,7 @@ export const TaskSpaceListItem: FC<TaskSpaceListProps> = ({ className, task, han
           })}
         />
         <div
-          onClick={()=>handleTaskSpaceClick(task)}
+          onClick={() => handleProblemSpaceClick(problem)}
           className={classNames({
             // [styles.titlePrimary]: isSelected,
             // [styles.titleSecondary]: !isSelected,

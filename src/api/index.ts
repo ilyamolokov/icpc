@@ -4,7 +4,7 @@ import { checkAuthorizationToken } from "../helpers/checkAuthorizationToken"
 import { configInterceptor } from "../helpers/configInterceptor"
 import { errorInterceptor } from "../helpers/errorInterceptor"
 import { urls } from "./urls"
-import { Tasks } from "../types/types"
+import { Problem } from "../types/types"
 
 class Api {
   private readonly client: AxiosInstance
@@ -19,11 +19,11 @@ class Api {
     return (await this.client(url, { params })).data
   }
 
-  async getTasks(contestId: string) {
+  async getProblems(contestId: string) {
     return (await this.get(`contests/${contestId}/problems`)).problems
   }
 
-  async getTaskStatement(contestId: string, alias: string) {
+  async getProblemStatement(contestId: string, alias: string) {
     return await this.get(`contests/${contestId}/problems/${alias}/statement`)
   }
 }

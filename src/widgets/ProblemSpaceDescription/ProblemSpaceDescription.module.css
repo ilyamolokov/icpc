@@ -1,5 +1,5 @@
 .blockWrapper {
-  grid-area: tasksDescription;
+  grid-area: problemsDescription;
 
   display: grid;
   grid-template-rows: auto 1fr;
@@ -10,7 +10,7 @@
 }
 
 
-.taskDescriptionHeader {
+.problemDescriptionHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,7 +29,7 @@
 
   border-bottom: 1px solid var(--color-grey-secondary);
 }
-.taskDescriptionContent {
+.problemDescriptionContent {
   overflow: scroll;
 }
 .activeTab {
@@ -50,7 +50,7 @@
 
   background-color: var(--color-black-typo-primary);
 }
-.taskStatus {
+.problemStatus {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -65,7 +65,7 @@
 
   background-color: var(--color-white-grey);
 }
-.taskTitleBlock {
+.problemTitleBlock {
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -73,7 +73,7 @@
 
   margin-top: 24px;
 }
-.taskTitleBlock h3 {
+.problemTitleBlock h3 {
   color: var(--color-black-typo-primary);
   font-weight: 500;
   font-size: 20px;
@@ -81,7 +81,7 @@
 .inputTextBlock span,
 .outputTextBlock span,
 .codeSampleBlock span,
-.taskTitleBlock span,
+.problemTitleBlock span,
 .codeSampleBlockIde p {
   font-size: 14px;
   line-height: 24px;

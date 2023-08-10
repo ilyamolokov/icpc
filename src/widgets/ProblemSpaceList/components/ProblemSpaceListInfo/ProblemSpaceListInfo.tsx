@@ -1,9 +1,9 @@
 import * as React from "react"
 import { FC } from "react"
 
-import styles from "./TaskSpaceListInfo.module.css"
+import styles from "./ProblemSpaceListInfo.module.css"
 
-export const TaskSpaceListInfo: FC = () => {
+export const ProblemSpaceListInfo: FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.place}>{"Место: 4"}</div>

@@ -3,18 +3,18 @@ import { FC } from "react"
 
 import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
 
-import styles from "./TaskSpaceDescription.module.css"
+import styles from "./ProblemSpaceDescription.module.css"
 import { Loading } from "../../ui/Loading/Loading"
-import { Task } from "../../types/types"
+import { Problem } from "../../types/types"
 
 interface Props {
-  currentTaskDescription: string,
+  currentProblemDescription: string,
   isLoading: boolean
   isError: boolean
   refetch: () => {}
 }
 
-export const TaskSpaceDescription: FC<Props> = ({ currentTaskDescription, isLoading, isError, refetch }) => {
+export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, isLoading, isError, refetch }) => {
 
   if (isLoading) {
     return (<BlockWrapper className={styles.blockWrapper}>
@@ -31,19 +31,19 @@ export const TaskSpaceDescription: FC<Props> = ({ currentTaskDescription, isLoad
   }
   return (
     <BlockWrapper className={styles.blockWrapper}>
-      <div className={styles.taskDescriptionHeader}>
+      <div className={styles.problemDescriptionHeader}>
         <div className={styles.tabulation}>
           {" "}
           {/* В будущем можно вынести в отдельный компонент */}
           <span className={`${styles.description} ${styles.activeTab}`}>Описание</span>
           <span className={styles.solutions}>Отправленные решения</span>
         </div>
-        <span className={styles.taskStatus}>Не решена</span> {/* В будущем можно вынести в отдельный компонент */}
+        <span className={styles.problemStatus}>Не решена</span> {/* В будущем можно вынести в отдельный компонент */}
       </div>
 
-      <div className={styles.taskDescriptionContent}>
-        <div dangerouslySetInnerHTML={{ __html: currentTaskDescription }} />
-        {/*  <div className={styles.taskTitleBlock}>*/}
+      <div className={styles.problemDescriptionContent}>
+        <div dangerouslySetInnerHTML={{ __html: currentProblemDescription }} />
+        {/*  <div className={styles.problemTitleBlock}>*/}
         {/*    <h3>Считалока 2.0</h3>*/}
         {/*    <span>*/}
         {/*      Дети продолжают запоминать цифры, а мы им помогать Нам вновь называют начало и конец последовательности чисел, а мы выводим их и*/}

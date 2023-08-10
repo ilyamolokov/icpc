@@ -5,15 +5,15 @@ export enum EventName {
 
 type EventNameType = `${EventName}`
 
-interface TaskPayload {
-  taskAlias: string
+interface ProblemPayload {
+  problemAlias: string
 }
 
-interface MessageEventPayload extends TaskPayload {
+interface MessageEventPayload extends ProblemPayload {
   message: string
 }
 
-interface EditorEventPayload extends TaskPayload {
+interface EditorEventPayload extends ProblemPayload {
   code: string
 }
 
@@ -42,7 +42,7 @@ const initialHandlers: Handlers = {
 interface subscribeParams {
   eventName: EventNameType
   handler: Handler
-  taskAlias?: string
+  problemAlias?: string
 }
 
 class Socket {
@@ -56,43 +56,43 @@ class Socket {
     this.client.onmessage = (evt: MessageEvent<string>) => {
       const { type, payload }: Data = JSON.parse(evt.data)
 
-      if (payload && payload.taskAlias) {
+      if (payload && payload.problemAlias) {
         // @ts-ignore
-        this.handlers[type][payload.taskAlias](payload)
+        this.handlers[type][payload.problemAlias](payload)
       }
     }
   }
 
-  public sendMessage(message: string, taskAlias: string) {
-    this.send(EventName.Message, { message, taskAlias })
+  public sendMessage(message: string, problemAlias: string) {
+    this.send(EventName.Message, { message, problemAlias })
   }
 
-  public sendCode(code: string, taskAlias: string) {
-    this.send(EventName.Editor, { code, taskAlias })
+  public sendCode(code: string, problemAlias: string) {
+    this.send(EventName.Editor, { code, problemAlias })
   }
 
-  public subscribeMessage(taskAlias: string, handler: MessageHandler) {
+  public subscribeMessage(problemAlias: string, handler: MessageHandler) {
     // @ts-ignore
-    this.subscribe({ eventName: EventName.Message, taskAlias, handler })
+    this.subscribe({ eventName: EventName.Message, problemAlias, handler })
   }
 
-  public subscribeEditor(taskAlias: string, handler: EditorHandler) {
+  public subscribeEditor(problemAlias: string, handler: EditorHandler) {
     // @ts-ignore
-    this.subscribe({ eventName: EventName.Editor, taskAlias, handler })
+    this.subscribe({ eventName: EventName.Editor, problemAlias, handler })
   }
 
   private send(type: EventNameType, payload: EventPayload) {
     this.client.send(JSON.stringify({ type, payload }))
   }
 
-  private subscribe({ eventName, taskAlias, handler }: subscribeParams) {
-    if (taskAlias) {
-      this.subscribeTaskEvent(eventName, taskAlias, handler)
+  private subscribe({ eventName, problemAlias, handler }: subscribeParams) {
+    if (problemAlias) {
+      this.subscribeProblemEvent(eventName, problemAlias, handler)
     }
   }
 
-  private subscribeTaskEvent(eventName: EventNameType, taskAlias: string, handler: Handler) {
-    this.handlers[eventName][taskAlias] = handler
+  private subscribeProblemEvent(eventName: EventNameType, problemAlias: string, handler: Handler) {
+    this.handlers[eventName][problemAlias] = handler
   }
 }
 

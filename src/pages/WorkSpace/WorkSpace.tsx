@@ -1,7 +1,7 @@
 import React from "react"
 
 import { Header } from "../../widgets/Header/Header"
-import { TaskSpace } from "../../widgets/TaskSpace/TaskSpace"
+import { ProblemSpace } from "../../widgets/ProblemSpace/ProblemSpace"
 
 import styles from "./WorkSpace.module.css"
 
@@ -10,7 +10,7 @@ export const WorkSpace = () => {
     <main className={styles.workspace}>
       <Header />
 
-      <TaskSpace />
+      <ProblemSpace />
     </main>
   )
 }

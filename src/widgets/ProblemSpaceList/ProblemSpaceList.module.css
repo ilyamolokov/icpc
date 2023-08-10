@@ -1,5 +1,5 @@
 .container {
-  grid-area: tasks;
+  grid-area: problems;
 
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -12,7 +12,7 @@
   overflow: hidden;
 }
 
-.tasks {
+.problems {
   display: flex;
   flex-direction: column;
   gap: 16px;

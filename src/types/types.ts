@@ -11,7 +11,7 @@ export interface Limit {
     outputLimit:number
     timeLimit:number
 }
-export interface Task {
+export interface Problem {
     alias: string
     compiler: string[]
     description: string
@@ -22,4 +22,4 @@ export interface Task {
     statements: Statement[]
     testCount: number | null
 }
-export type Tasks = Task[]
+export type Problems = Problem[]

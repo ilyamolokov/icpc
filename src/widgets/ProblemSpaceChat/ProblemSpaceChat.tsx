@@ -2,16 +2,16 @@ import * as React from "react"
 import { FC } from "react"
 
 import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
-import { TaskSpaceChatMessage } from "./components/TaskSpaceChatMessage/TaskSpaceChatMessage"
+import { ProblemSpaceChatMessage } from "./components/ProblemSpaceChatMessage/ProblemSpaceChatMessage"
 
-import styles from "./TaskSpaceChat.module.css"
+import styles from "./ProblemSpaceChat.module.css"
 
-interface TaskSpaceChatProps {
+interface ProblemSpaceChatProps {
   messages: string[]
   onSendMessage: (message: string) => void
 }
 
-export const TaskSpaceChat: FC<TaskSpaceChatProps> = ({ messages, onSendMessage }) => {
+export const ProblemSpaceChat: FC<ProblemSpaceChatProps> = ({ messages, onSendMessage }) => {
   const [state, setState] = React.useState({
     message: "",
     rows: 1,
@@ -61,7 +61,7 @@ export const TaskSpaceChat: FC<TaskSpaceChatProps> = ({ messages, onSendMessage 
       <span className={styles.commentsTitle}>Комментарии к задаче</span>
       <div className={styles.chat}>
         {messages.map((message, index) => (
-          <TaskSpaceChatMessage key={index} username={"Ruslan"} message={message} />
+          <ProblemSpaceChatMessage key={index} username={"Ruslan"} message={message} />
         ))}
       </div>
       <textarea
