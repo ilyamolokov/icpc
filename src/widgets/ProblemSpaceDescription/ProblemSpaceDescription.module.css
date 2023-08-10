@@ -9,7 +9,6 @@
   overflow: hidden;
 }
 
-
 .problemDescriptionHeader {
   display: flex;
   justify-content: space-between;
@@ -31,6 +30,22 @@
 }
 .problemDescriptionContent {
   overflow: scroll;
+}
+.problemSolutionVerdicts {
+  margin-top: 24px;
+}
+.detailsArrow {
+  transform: rotate(270deg);
+}
+
+.verdictStatus {
+  color: var(--color-red-light);
+}
+.tab {
+  cursor: pointer;
+}
+.tab:hover {
+  color: var(--color-black-typo-primary);
 }
 .activeTab {
   position: relative;
