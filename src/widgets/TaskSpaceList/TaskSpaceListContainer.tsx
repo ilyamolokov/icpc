@@ -8,7 +8,6 @@ import { Loading } from "../../ui/Loading/Loading"
 import { Task } from "../../types/types"
 import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
 
-
 export const TaskSpaceListContainer = () => {
   const { id, alias: currentAlias } = useParams();
   const navigate = useNavigate();
