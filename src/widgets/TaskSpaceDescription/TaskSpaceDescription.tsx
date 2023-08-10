@@ -8,7 +8,7 @@ import { Loading } from "../../ui/Loading/Loading"
 import { Task } from "../../types/types"
 
 interface Props {
-  currentTaskDescription: any,
+  currentTaskDescription: string,
   isLoading: boolean
   isError: boolean
   refetch: () => {}

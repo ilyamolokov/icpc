@@ -11,7 +11,7 @@ import { Task } from "../../../../types/types"
 interface TaskSpaceListProps {
   className?: string
   task:Task
-  handleTaskSpaceClick:any
+  handleTaskSpaceClick:(task: Task) => void
   // name: string
   // alias: string
   // id: string

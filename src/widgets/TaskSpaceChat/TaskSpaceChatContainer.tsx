@@ -10,7 +10,7 @@ export const TaskSpaceChatContainer: FC = () => {
 
   const [messages, setMessages] = useState<string[]>([])
 
-  const messageEventHandler: MessageHandler = (message) => {
+  const messageEventHandler: MessageHandler = ({message}) => {
     setMessages(prevState => [...prevState, message])
   }
 

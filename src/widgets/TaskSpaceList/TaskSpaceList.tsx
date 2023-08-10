@@ -11,7 +11,7 @@ import { Tasks, Task } from "../../types/types"
 
 interface Props {
   tasks:Tasks
-  handleTaskSpaceClick:any
+  handleTaskSpaceClick:(task: Task) => void
   contestId:string
   currentAlias:string
 //   contestId: string

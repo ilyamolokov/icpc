@@ -5,7 +5,7 @@ import { TaskSpaceList } from "./TaskSpaceList"
 import { useNavigate, useParams } from "react-router-dom"
 import { useQuery } from "react-query"
 import { Loading } from "../../ui/Loading/Loading"
-import { Task } from "../../types/types"
+import { Task, Tasks } from "../../types/types"
 import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
 
 export const TaskSpaceListContainer = () => {
@@ -17,7 +17,7 @@ export const TaskSpaceListContainer = () => {
     'tasks',
     () => api.getTasks(contestId),
     {
-      onSuccess: (tasks: any[]) => {
+      onSuccess: (tasks: Tasks) => {
         navigate(`/workspace/${contestId}/${tasks[0].alias}`);
       }
     }
@@ -39,6 +39,6 @@ export const TaskSpaceListContainer = () => {
       <div>error</div>
     </BlockWrapper>)
   }
-
+  console.log(tasks)
   return <TaskSpaceList tasks={tasks} handleTaskSpaceClick={handleTaskSpaceClick} contestId={contestId} currentAlias={currentAlias} />
 }
