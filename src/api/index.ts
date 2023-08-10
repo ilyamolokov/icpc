@@ -19,6 +19,10 @@ class Api {
     return (await this.client(url, { params })).data
   }
 
+  async getSaveContests(contestId: string) { // каждый раз дергать для нового контеста (он сохраняется в бд)
+    return (await this.get(`contests/${contestId}`))
+  }
+
   async getProblems(contestId: string) {
     return (await this.get(`contests/${contestId}/problems`)).problems
   }
@@ -29,6 +33,7 @@ class Api {
   async getMe() {
     return await this.get('user/me')
   }
+
 }
 
 export const api = new Api(urls.openApiUrl)
