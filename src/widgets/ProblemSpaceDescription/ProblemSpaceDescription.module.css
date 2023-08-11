@@ -31,6 +31,12 @@
 .problemDescriptionContent {
   overflow: scroll;
 }
+.tab {
+  cursor: pointer;
+}
+.tab:hover {
+  color: var(--color-black-typo-primary);
+}
 .activeTab {
   position: relative;
 
