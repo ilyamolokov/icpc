@@ -35,18 +35,7 @@ export type MessageHandler = (payload: MessagePayload) => void
 export type CodeHandler = (payload: CodePayload) => void
 
 export type Handlers = {
-  [key in Type]: Record<string, Handler>
+  [key in Type]?: Handler
 }
 
-export const initialHandlers: Handlers = {
-  [Types.Message]: {},
-  [Types.Code]: {},
-  [Types.User]: {},
-
-}
-
-export interface SubscribeParams {
-  eventName: Type
-  problemAlias?: string
-  handler: Handler
-}
+export const initialHandlers: Handlers = {}
