@@ -1,13 +1,14 @@
 import * as React from "react"
 import { FC } from "react"
 
+import { Message } from "../../types/types"
 import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
 import { ProblemSpaceChatMessage } from "./components/ProblemSpaceChatMessage/ProblemSpaceChatMessage"
 
 import styles from "./ProblemSpaceChat.module.css"
 
 interface ProblemSpaceChatProps {
-  messages: string[]
+  messages: Message[]
   onSendMessage: (message: string) => void
 }
 
@@ -19,7 +20,7 @@ export const ProblemSpaceChat: FC<ProblemSpaceChatProps> = ({ messages, onSendMe
     maxRows: 10,
   })
 
-  const textLog = React.useRef(null);
+  const textLog = React.useRef(null)
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const textareaLineHeight = 24
@@ -51,7 +52,7 @@ export const ProblemSpaceChat: FC<ProblemSpaceChatProps> = ({ messages, onSendMe
       onSendMessage(state.message)
       setState({
         ...state,
-        message: '',
+        message: "",
       })
     }
   }
@@ -61,7 +62,7 @@ export const ProblemSpaceChat: FC<ProblemSpaceChatProps> = ({ messages, onSendMe
       <span className={styles.commentsTitle}>Комментарии к задаче</span>
       <div className={styles.chat}>
         {messages.map((message, index) => (
-          <ProblemSpaceChatMessage key={index} username={"Ruslan"} message={message} />
+          <ProblemSpaceChatMessage key={index} message={message} />
         ))}
       </div>
       <textarea

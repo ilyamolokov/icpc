@@ -1,13 +1,13 @@
 import * as React from "react"
 import { FC } from "react"
 
+import { Problems, Problem } from "../../types/types"
 import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
+import { Loading } from "../../ui/Loading/Loading"
 import { ProblemSpaceListInfo } from "./components/ProblemSpaceListInfo/ProblemSpaceListInfo"
 import { ProblemSpaceListItem } from "./components/ProblemSpaceListItem/ProblemSpaceListItem"
 
 import styles from "./ProblemSpaceList.module.css"
-import { Loading } from "../../ui/Loading/Loading"
-import { Problems, Problem } from "../../types/types"
 
 interface Props {
   problems: Problems
@@ -31,12 +31,7 @@ export const ProblemSpaceList: FC<Props> = ({ problems, handleProblemSpaceClick,
       <h3 className={styles.title}>{"Задачи"}</h3>
       <div className={styles.problems}>
         {problems.map((problem) => (
-          <ProblemSpaceListItem
-            key={problem.id}
-            problem={problem}
-            handleProblemSpaceClick={handleProblemSpaceClick}
-            status="done"
-          />
+          <ProblemSpaceListItem key={problem.id} problem={problem} handleProblemSpaceClick={handleProblemSpaceClick} status="done" />
         ))}
       </div>
 

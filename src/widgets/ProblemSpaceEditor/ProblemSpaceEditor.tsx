@@ -1,5 +1,4 @@
-import React, {forwardRef} from "react"
-import { FC } from "react"
+import React, { FC } from "react"
 
 import AceEditor from "react-ace"
 
@@ -12,11 +11,12 @@ import { ProblemSpaceEditorSelect } from "./components/ProblemSpaceEditorSelect/
 import styles from "./ProblemSpaceEditor.module.css"
 
 interface Props {
-  onCodeChange:(code: string) => void
-  codeState:string
+  onCodeChange: (code: string) => void
+  codeState: string
+  sendCode: (code: string) => void
 }
 
-export const ProblemSpaceEditor: FC<Props> = ({onCodeChange,codeState}) => {
+export const ProblemSpaceEditor: FC<Props> = ({ onCodeChange, codeState, sendCode }) => {
   React.useEffect(() => {
     const gutter = document.querySelector<HTMLDivElement>(".ace_gutter")
     gutter.style.backgroundColor = "#fff"
@@ -32,7 +32,7 @@ export const ProblemSpaceEditor: FC<Props> = ({onCodeChange,codeState}) => {
         width="100%"
         height="100%"
         showGutter={true}
-        onChange={(code)=>onCodeChange(code)}
+        onChange={(code) => onCodeChange(code)}
         setOptions={{
           useWorker: false,
           fontSize: 14,
@@ -40,7 +40,14 @@ export const ProblemSpaceEditor: FC<Props> = ({onCodeChange,codeState}) => {
       />
       <div className={styles.footer}>
         <span className={styles.alarm}>Редактор бездействует 1 минуту</span>
-        <Button title="Отправить" type="button" onClick={() => { }} disabled={false} />
+        <Button
+          title="Отправить"
+          type="button"
+          onClick={() => {
+            sendCode(codeState)
+          }}
+          disabled={false}
+        />
       </div>
     </BlockWrapper>
   )

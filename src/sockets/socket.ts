@@ -1,62 +1,55 @@
-import {
-  CodeHandler,
-  CodePayload,
-  Data,
-  Handler,
-  Handlers,
-  initialHandlers,
-  MessageHandler, MessagePayload,
-  SubscribeParams, Type,
-  Types,
-} from "./types"
+import { CodeHandler, CodePayload, Data, Handler, Handlers, initialHandlers, MessageHandler, Type, Types } from "./types"
+import { YandexUser } from "../types/types"
+import { urls } from "../constants/urls"
 
 class Socket {
-  private readonly client: WebSocket
-  private readonly handlers: Handlers
+  private client: WebSocket
+  private initialized: boolean = false
 
-  constructor() {
-    this.client = new WebSocket('ws://51.250.65.5:8080/ws/lobby?team_id=8&user_id=1')
-    this.handlers = initialHandlers
+  private readonly handlers: Handlers = initialHandlers
 
-    this.client.onmessage = (evt: MessageEvent<string>) => {
-      const { type, payload }: Data = JSON.parse(evt.data)
+  constructor() {}
 
-      if (payload && typeof payload?.problemAlias === 'function') {
-        this.handlers[type][payload.problemAlias](payload)
+  public init(user: YandexUser) {
+    if (!this.initialized) {
+      this.client = new WebSocket(`${urls.websocket}?training_session_id=${urls.training_session_id}&user_id=${user.id}`)
+
+      this.client.onopen = function () {
+        this.send(JSON.stringify({ type: Types.User, payload: { user } }))
       }
-    }
-  }
 
-  public sendMessage(payload: MessagePayload) {
-    this.send({ type: Types.Message, payload })
+      this.client.onmessage = (evt: MessageEvent<string>) => {
+        const { type, payload }: Data = JSON.parse(evt.data)
+        console.log(JSON.parse(evt.data))
+
+        if (this.handlers[type]) {
+          this.handlers[type](payload)
+        }
+      }
+      this.initialized = true;
+    }
   }
 
   public sendCode(payload: CodePayload) {
     this.send({ type: Types.Code, payload })
   }
 
-  public subscribeMessage(problemAlias: string, handler: MessageHandler) {
+  public subscribeMessage(handler: MessageHandler) {
     // @ts-ignore
-    this.subscribe({ eventName: Types.Message, problemAlias, handler })
+    this.subscribe(Types.Message, handler)
   }
 
-  public subscribeEditor(problemAlias: string, handler: CodeHandler) {
+  public subscribeEditor(handler: CodeHandler) {
     // @ts-ignore
-    this.subscribe({ eventName: Types.Code, problemAlias, handler })
+    this.subscribe(Types.Code, handler)
   }
 
   private send(data: Data) {
     this.client.send(JSON.stringify(data))
   }
 
-  private subscribe({ eventName, problemAlias, handler }: SubscribeParams) {
-    if (problemAlias) {
-      this.subscribeProblemEvent(eventName, problemAlias, handler)
-    }
-  }
-
-  private subscribeProblemEvent(eventName: Type, problemAlias: string, handler: Handler) {
-    this.handlers[eventName][problemAlias] = handler
+  private subscribe(eventName: Type, handler: Handler) {
+    this.handlers[eventName] = handler
   }
 }
 

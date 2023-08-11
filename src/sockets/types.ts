@@ -1,6 +1,7 @@
 export enum Types {
-  Message = 'message',
-  Code = 'code',
+  Message = "PROBLEM_COMMENT_RECEIVED",
+  Code = "CODE_EDITOR_UPDATE",
+  User = "USER",
 }
 
 export type Type = `${Types}`
@@ -10,11 +11,17 @@ export interface Payload {
 }
 
 export interface MessagePayload extends Payload {
-  message: string
+  content: string
+  id: string
+  userFirstName: string
+  userId: string
+  userLastName: string
+  userLogin: string
 }
 
 export interface CodePayload extends Payload {
   code: string
+  userId:string
 }
 
 export interface Data {
@@ -28,16 +35,7 @@ export type MessageHandler = (payload: MessagePayload) => void
 export type CodeHandler = (payload: CodePayload) => void
 
 export type Handlers = {
-  [key in Type]: Record<string, Handler>
+  [key in Type]?: Handler
 }
 
-export const initialHandlers: Handlers = {
-  [Types.Message]: {},
-  [Types.Code]: {},
-}
-
-export interface SubscribeParams {
-  eventName: Type
-  problemAlias?: string
-  handler: Handler
-}
+export const initialHandlers: Handlers = {}

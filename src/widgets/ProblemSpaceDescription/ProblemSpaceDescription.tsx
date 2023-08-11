@@ -3,10 +3,10 @@ import { FC, useState } from "react"
 
 import { Problem } from "../../types/types"
 import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
-import { Loading } from "../../ui/Loading/Loading"
 import { Arrow } from "../../ui/icons/Arrow"
 import { ProblemSolutionsVerdicts, IData } from "../ProblemSolutionsVerdicts/ProblemSolutionsVerdicts"
 import { ProblemSolutionVerdict } from "../ProblemSolutionsVerdicts/components/ProblemSolutionVerdict/ProblemSolutionVerdict"
+import { Loading } from "../../ui/Loading/Loading"
 
 import styles from "./ProblemSpaceDescription.module.css"
 

@@ -1,16 +1,17 @@
 import React, { FunctionComponent } from "react"
 
+import { Message } from "../../../../types/types"
+
 import styles from "./ProblemSpaceChatMessage.module.css"
 
 interface ProblemSpaceChatMessageProps {
-  username: string
-  message: string
+  message: Message
 }
 
-export const ProblemSpaceChatMessage: FunctionComponent<ProblemSpaceChatMessageProps> = ({ username, message }) => {
+export const ProblemSpaceChatMessage: FunctionComponent<ProblemSpaceChatMessageProps> = ({ message }) => {
   return (
     <div className={styles.comment}>
-      {username}: <span>{message}</span>
+      {message.userLogin}: <span>{message.content}</span>
     </div>
   )
 }
