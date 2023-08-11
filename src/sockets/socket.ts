@@ -21,7 +21,7 @@ class Socket {
     this.client.onmessage = (evt: MessageEvent<string>) => {
       const { type, payload }: Data = JSON.parse(evt.data)
 
-      if (payload && payload.problemAlias) {
+      if (payload && typeof payload?.problemAlias === 'function') {
         this.handlers[type][payload.problemAlias](payload)
       }
     }
