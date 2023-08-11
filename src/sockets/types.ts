@@ -1,6 +1,7 @@
 export enum Types {
   Message = "PROBLEM_COMMENT_RECEIVED",
   Code = "CODE_EDITOR_UPDATE",
+  User = "USER",
 }
 
 export type Type = `${Types}`
@@ -39,6 +40,8 @@ export type Handlers = {
 export const initialHandlers: Handlers = {
   [Types.Message]: {},
   [Types.Code]: {},
+  [Types.User]: {},
+
 }
 
 export interface SubscribeParams {

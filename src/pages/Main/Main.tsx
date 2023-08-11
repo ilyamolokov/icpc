@@ -4,25 +4,9 @@ import { createPortal } from "react-dom"
 import { MainPageModal } from "../../widgets/MainPageModal/MainPageModal"
 
 import styles from "./Main.module.css"
-import { useGetYandexUserQuery } from "../../store/api/user.api"
-import { Loading } from "../../ui/Loading/Loading"
-import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
 
 function Main() {
   const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const { data, isLoading, error } = useGetYandexUserQuery()
-
-  if (isLoading) {
-    return (<BlockWrapper>
-      <Loading />
-    </BlockWrapper>)
-  }
-  if (!data || error) {
-    return (<BlockWrapper>
-      <div>Error</div>
-    </BlockWrapper>)
-  }
 
   return (
     <div className={styles.mainPage}>

@@ -9,6 +9,7 @@ import { User } from "../../ui/icons/User"
 import styles from "./Header.module.css"
 
 export const Header = () => {
+
   return (
     <header className={styles.header}>
       <div className={classnames(styles.headerSection, styles.tabs)}>

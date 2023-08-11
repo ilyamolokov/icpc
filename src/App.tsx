@@ -1,14 +1,17 @@
-import React from "react"
+import React, { FC } from "react"
 import { QueryClient, QueryClientProvider } from "react-query"
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom"
 
 import Lobby from "./pages/Lobby/Lobby"
 import Main from "./pages/Main/Main"
 import { WorkSpace } from "./pages/WorkSpace/WorkSpace"
+import { useGetYandexUserQuery } from "./store/api/user.api"
 
 const queryClient = new QueryClient()
 
 const App = () => {
+  useGetYandexUserQuery()
+
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
@@ -23,5 +26,6 @@ const App = () => {
     </QueryClientProvider>
   )
 }
+
 
 export default App

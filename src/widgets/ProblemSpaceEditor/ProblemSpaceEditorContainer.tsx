@@ -10,8 +10,8 @@ export const ProblemSpaceEditorContainer: FC = () => {
 
   const [codeState, setCodeState] = useState<string>("")
 
+  const training_session_id = "c9b5c66e-e1d8-4579-9ab9-4fd2adc4b6db"
   const sendCode = (code: string) => {
-    const training_session_id = "c9b5c66e-e1d8-4579-9ab9-4fd2adc4b6db"
     api.postSubmissions(training_session_id, code, "python3_docker", "A")
   }
 
@@ -27,7 +27,7 @@ export const ProblemSpaceEditorContainer: FC = () => {
     socket.subscribeEditor(alias, editorEventhandler)
 
     api
-      .getCodeByProblemAlias("c9b5c66e-e1d8-4579-9ab9-4fd2adc4b6db", alias)
+      .getCodeByProblemAlias(training_session_id, alias)
       .then(({ code }) => setCodeState(code))
       .catch(console.log)
   }, [alias])
