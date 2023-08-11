@@ -45,6 +45,14 @@ class Api {
     formData.append("problem", problem)
     return await this.client.post(url, formData)
   }
+
+  async getSubmissions(trainingSessionId: string, submissionId: number) {
+    return await this.get(`/training-sessions/${trainingSessionId}/submissions/${submissionId}`)
+  }
+
+  async getSubmissionsFull(trainingSessionId: string, submissionId: number) {
+    return await this.get(`/training-sessions/${trainingSessionId}/submissions/${submissionId}/full`)
+  }
 }
 
 export const api = new Api(urls.openApiUrl)
