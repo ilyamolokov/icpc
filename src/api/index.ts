@@ -39,12 +39,12 @@ class Api {
     return await this.get("user/me")
   }
 
-  async postSubmissions(training_session_id: string, code: string, compiler: string, problem: string) {
-    const url = `/training-sessions/${training_session_id}/submissions`
+  async postSubmissions(trainingSessionId: string, code: string, compiler: string, problem: string) {
+    const url = `/training-sessions/${trainingSessionId}/submissions`
     const formData = createFile(code)
     formData.append("compiler", compiler)
     formData.append("problem", problem)
-    return await this.client.post(url, formData)
+    return await this.post(url, formData)
   }
 
   getCodeByProblemAlias(trainingSessionId: string, problemAlias: string) {

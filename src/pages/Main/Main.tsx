@@ -1,12 +1,12 @@
 import React, { useState } from "react"
 import { createPortal } from "react-dom"
 
+import { useGetYandexUserQuery } from "../../store/api/user.api"
+import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
+import { Loading } from "../../ui/Loading/Loading"
 import { MainPageModal } from "../../widgets/MainPageModal/MainPageModal"
 
 import styles from "./Main.module.css"
-import { useGetYandexUserQuery } from "../../store/api/user.api"
-import { Loading } from "../../ui/Loading/Loading"
-import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
 
 function Main() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -14,14 +14,18 @@ function Main() {
   const { data, isLoading, error } = useGetYandexUserQuery()
 
   if (isLoading) {
-    return (<BlockWrapper>
-      <Loading />
-    </BlockWrapper>)
+    return (
+      <BlockWrapper>
+        <Loading />
+      </BlockWrapper>
+    )
   }
   if (!data || error) {
-    return (<BlockWrapper>
-      <div>Error</div>
-    </BlockWrapper>)
+    return (
+      <BlockWrapper>
+        <div>Error</div>
+      </BlockWrapper>
+    )
   }
 
   return (

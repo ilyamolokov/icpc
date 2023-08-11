@@ -1,5 +1,5 @@
-import { CodeHandler, CodePayload, Data, Handler, Handlers, initialHandlers, MessageHandler, SubscribeParams, Type, Types } from "./types"
 import { YandexUser } from "../types/types"
+import { CodeHandler, CodePayload, Data, Handler, Handlers, initialHandlers, MessageHandler, SubscribeParams, Type, Types } from "./types"
 
 class Socket {
   private client: WebSocket
