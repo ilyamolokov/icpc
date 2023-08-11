@@ -21,6 +21,7 @@ export interface MessagePayload extends Payload {
 
 export interface CodePayload extends Payload {
   code: string
+  userId:string
 }
 
 export interface Data {

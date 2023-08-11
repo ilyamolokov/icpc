@@ -5,24 +5,26 @@ import { urls } from "../constants/urls"
 class Socket {
   private client: WebSocket
   private readonly handlers: Handlers = initialHandlers
-
+  private initialized: boolean = false
   constructor() { }
 
   public init(user: YandexUser) {
-    console.log(user)
-    this.client = new WebSocket(`${urls.websocket}?training_session_id=${urls.training_session_id}&user_id=${user.client_id}`)
-
-    this.client.onopen = function () {
-      this.send(JSON.stringify({ type: Types.User, payload: { user } }))
-    }
-
-    this.client.onmessage = (evt: MessageEvent<string>) => {
-      const { type, payload }: Data = JSON.parse(evt.data)
-      console.log(JSON.parse(evt.data))
-
-      if (payload && payload.problemAlias) {
-        this.handlers[type][payload.problemAlias](payload)
+    if (!this.initialized) {
+      this.client = new WebSocket(`${urls.websocket}?training_session_id=${urls.training_session_id}&user_id=${user.client_id}`)
+      console.log(this.client, 'im here')
+      this.client.onopen = function () {
+        this.send(JSON.stringify({ type: Types.User, payload: { user } }))
       }
+
+      this.client.onmessage = (evt: MessageEvent<string>) => {
+        const { type, payload }: Data = JSON.parse(evt.data)
+        // console.log(JSON.parse(evt.data))
+
+        if (payload && payload.problemAlias) {
+          this.handlers[type][payload.problemAlias](payload)
+        }
+      }
+      this.initialized = true;
     }
   }
 

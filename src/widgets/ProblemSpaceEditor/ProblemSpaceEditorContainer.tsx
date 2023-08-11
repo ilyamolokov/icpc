@@ -4,11 +4,13 @@ import { useParams } from "react-router-dom"
 import { api } from "../../api"
 import { CodeHandler, socket } from "../../sockets"
 import { ProblemSpaceEditor } from "./ProblemSpaceEditor"
+import { useGetYandexUserQuery } from "../../store/api/user.api"
 
 export const ProblemSpaceEditorContainer: FC = () => {
   const { alias } = useParams()
-
   const [codeState, setCodeState] = useState<string>("")
+  const { data: user } = useGetYandexUserQuery()
+
 
   const training_session_id = "c9b5c66e-e1d8-4579-9ab9-4fd2adc4b6db"
   const sendCode = (code: string) => {
@@ -17,11 +19,13 @@ export const ProblemSpaceEditorContainer: FC = () => {
   }
 
   const onCodeChange = (code: string) => {
-    socket.sendCode({ code, problemAlias: alias })
+    socket.sendCode({ code, problemAlias: alias, userId: user.client_id})
   }
 
-  const editorEventhandler: CodeHandler = ({ code }) => {
-    setCodeState(code)
+  const editorEventhandler: CodeHandler = ({ code, userId }) => {
+    if(userId !== user.client_id) {
+      setCodeState(code)
+    }
   }
 
   useEffect(() => {
