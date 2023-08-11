@@ -44,7 +44,15 @@ class Api {
     const formData = createFile(code)
     formData.append("compiler", compiler)
     formData.append("problem", problem)
-    return await this.post(url, formData)
+    return await this.client.post(url, formData)
+  }
+
+  async getSubmissions(trainingSessionId: string, submissionId: number) {
+    return await this.get(`/training-sessions/${trainingSessionId}/submissions/${submissionId}`)
+  }
+
+  async getSubmissionsFull(trainingSessionId: string, submissionId: number) {
+    return await this.get(`/training-sessions/${trainingSessionId}/submissions/${submissionId}/full`)
   }
 
   getCodeByProblemAlias(trainingSessionId: string, problemAlias: string) {

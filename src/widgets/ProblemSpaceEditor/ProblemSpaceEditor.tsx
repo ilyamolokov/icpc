@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC, useEffect } from "react"
 
 import AceEditor from "react-ace"
 
@@ -20,10 +20,13 @@ interface Props {
 export const ProblemSpaceEditor: FC<Props> = ({ onCodeChange, codeState, sendCode, isEditorDisabled }) => {
   const isSendCodeButtonDisabled = isEditorDisabled
 
-  React.useEffect(() => {
+  useEffect(() => {
+    const editor = document.querySelector<HTMLDivElement>(".ace_editor")
     const gutter = document.querySelector<HTMLDivElement>(".ace_gutter")
-    gutter.style.backgroundColor = "#fff"
-  }, [])
+
+    editor.style.backgroundColor = isEditorDisabled ? 'var(--color-white-grey)' : "#fff"
+    gutter.style.backgroundColor = isEditorDisabled ? 'var(--color-white-grey)' : "#fff"
+  }, [isEditorDisabled])
 
   return (
     <BlockWrapper className={styles.blockWrapper}>

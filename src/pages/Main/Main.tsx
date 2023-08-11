@@ -1,9 +1,5 @@
 import React, { useState } from "react"
 import { createPortal } from "react-dom"
-
-import { useGetYandexUserQuery } from "../../store/api/user.api"
-import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
-import { Loading } from "../../ui/Loading/Loading"
 import { MainPageModal } from "../../widgets/MainPageModal/MainPageModal"
 
 import styles from "./Main.module.css"
