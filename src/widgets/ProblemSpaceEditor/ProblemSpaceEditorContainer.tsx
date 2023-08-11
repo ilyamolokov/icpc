@@ -26,7 +26,8 @@ export const ProblemSpaceEditorContainer: FC = () => {
   useEffect(() => {
     socket.subscribeEditor(alias, editorEventhandler)
 
-    api.getCodeByProblemAlias("c9b5c66e-e1d8-4579-9ab9-4fd2adc4b6db", alias)
+    api
+      .getCodeByProblemAlias("c9b5c66e-e1d8-4579-9ab9-4fd2adc4b6db", alias)
       .then(({ code }) => setCodeState(code))
       .catch(console.log)
   }, [alias])

@@ -1,16 +1,4 @@
-import {
-  CodeHandler,
-  CodePayload,
-  Data,
-  Handler,
-  Handlers,
-  initialHandlers,
-  MessageHandler,
-  MessagePayload,
-  SubscribeParams,
-  Type,
-  Types,
-} from "./types"
+import { CodeHandler, CodePayload, Data, Handler, Handlers, initialHandlers, MessageHandler, SubscribeParams, Type, Types } from "./types"
 
 class Socket {
   private readonly client: WebSocket
@@ -22,15 +10,12 @@ class Socket {
 
     this.client.onmessage = (evt: MessageEvent<string>) => {
       const { type, payload }: Data = JSON.parse(evt.data)
+      console.log(JSON.parse(evt.data))
 
       if (payload && payload.problemAlias) {
         this.handlers[type][payload.problemAlias](payload)
       }
     }
-  }
-
-  public sendMessage(payload: MessagePayload) {
-    this.send({ type: Types.Message, payload })
   }
 
   public sendCode(payload: CodePayload) {

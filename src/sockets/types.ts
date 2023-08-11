@@ -1,5 +1,5 @@
 export enum Types {
-  Message = "message",
+  Message = "PROBLEM_COMMENT_RECEIVED",
   Code = "CODE_EDITOR_UPDATE",
 }
 
@@ -10,7 +10,12 @@ export interface Payload {
 }
 
 export interface MessagePayload extends Payload {
-  message: string
+  content: string
+  id: string
+  userFirstName: string
+  userId: string
+  userLastName: string
+  userLogin: string
 }
 
 export interface CodePayload extends Payload {

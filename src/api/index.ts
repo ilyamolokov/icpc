@@ -19,7 +19,7 @@ class Api {
     return (await this.client.get<Response>(url, { params })).data
   }
 
-  async post(url: string, body: string, params?: Record<string, unknown>) {
+  async post<Body = Record<string, unknown>>(url: string, body: Body, params?: Record<string, unknown>) {
     return await this.client.post(url, body, { params })
   }
 
@@ -47,8 +47,15 @@ class Api {
     return await this.client.post(url, formData)
   }
 
-  async getCodeByProblemAlias(trainingSessionId: string, problemAlias: string) {
+  getCodeByProblemAlias(trainingSessionId: string, problemAlias: string) {
     return this.get<{ code: string }>(`training-sessions/${trainingSessionId}/code/${problemAlias}`)
+  }
+
+  postMessage(trainingSessionId: string, problemAlias: string, content: string) {
+    const formData = new FormData()
+    formData.append("content", content)
+
+    return this.post(`training-session/${trainingSessionId}/problem/${problemAlias}/commment/send`, formData)
   }
 }
 

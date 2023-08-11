@@ -38,3 +38,8 @@ export interface YandexUser {
   real_name: string
   sex: string
 }
+
+export interface Message {
+  content: string
+  userLogin: string
+}
