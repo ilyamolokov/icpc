@@ -19,11 +19,11 @@ export const ProblemSpaceEditorContainer: FC = () => {
   }
 
   const onCodeChange = (code: string) => {
-    socket.sendCode({ code, problemAlias: alias, userId: user.client_id})
+    socket.sendCode({ code, problemAlias: alias, userId: user.id})
   }
 
-  const editorEventhandler: CodeHandler = ({ code, userId }) => {
-    if(userId !== user.client_id) {
+  const editorEventhandler: CodeHandler = ({ code, userId, problemAlias }) => {
+    if(userId !== user.id && problemAlias === alias) {
       setCodeState(code)
     }
   }

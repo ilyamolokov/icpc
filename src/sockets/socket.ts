@@ -10,7 +10,7 @@ class Socket {
 
   public init(user: YandexUser) {
     if (!this.initialized) {
-      this.client = new WebSocket(`${urls.websocket}?training_session_id=${urls.training_session_id}&user_id=${user.client_id}`)
+      this.client = new WebSocket(`${urls.websocket}?training_session_id=${urls.training_session_id}&user_id=${user.id}`)
       console.log(this.client, 'im here')
       this.client.onopen = function () {
         this.send(JSON.stringify({ type: Types.User, payload: { user } }))
