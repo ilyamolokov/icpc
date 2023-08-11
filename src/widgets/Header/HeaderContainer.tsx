@@ -1,9 +1,9 @@
 import * as React from "react"
 import { FC, useEffect, useState } from "react"
 
-import { Header } from "./Header"
 import { ControlTakenHandler, socket } from "../../sockets"
 import { useGetYandexUserQuery } from "../../store/api/user.api"
+import { Header } from "./Header"
 
 export const HeaderContainer: FC = () => {
   const { data: user } = useGetYandexUserQuery()

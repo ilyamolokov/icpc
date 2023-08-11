@@ -17,9 +17,7 @@ export const ProblemSpaceChatContainer: FC = () => {
   }
 
   const onSendMessage = (message: string) => {
-    api.postMessage("c9b5c66e-e1d8-4579-9ab9-4fd2adc4b6db", alias, message)
-      .then(console.log)
-      .catch(console.log)
+    api.postMessage("c9b5c66e-e1d8-4579-9ab9-4fd2adc4b6db", alias, message).then(console.log).catch(console.log)
   }
 
   useEffect(() => {

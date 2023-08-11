@@ -18,4 +18,3 @@ export const TableRow = <T,>({ data, columns }: { data: T[]; columns: IColumnTyp
     </>
   )
 }
-

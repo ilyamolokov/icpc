@@ -1,38 +1,34 @@
 import classNames from "classnames"
-import React from "react"
+import React, { FC } from "react"
 
+import { Verdict } from "../../types/types"
 import { IColumnType, Table } from "../../ui/Table/Table"
 import { Arrow } from "../../ui/icons/Arrow"
 
 import styles from "./ProblemSolutionsVerdicts.module.css"
 
-export interface IData {
-  id: string
-  time: string
-  status: string
-  points: string
+export interface ProblemSolutionsVerdictsProps {
+  verdicts: Verdict[]
 }
 
-const columns: IColumnType<IData>[] = [
+const columns: IColumnType<Verdict>[] = [
   {
     key: "time",
     title: "Время",
     width: 50,
+    render: (_, { timeFromStart }) => <span className={classNames(styles.verdictStatus, styles.errorStatus)}>{timeFromStart}</span>,
   },
   {
     key: "status",
     title: "Статус",
     width: 400,
-    render: (_, { status }) => (
-      <>
-        <span className={classNames(styles.verdictStatus, styles.errorStatus)}>{status}</span>
-      </>
-    ),
+    render: (_, { verdict }) => <span className={classNames(styles.verdictStatus, styles.errorStatus)}>{verdict}</span>,
   },
   {
     key: "points",
     title: "Баллы",
     width: 40,
+    render: (_, { score }) => <span className={classNames(styles.verdictStatus, styles.errorStatus)}>{score}</span>,
   },
   {
     key: "details",
@@ -46,11 +42,10 @@ const columns: IColumnType<IData>[] = [
   },
 ]
 
-export const ProblemSolutionsVerdicts = ({ data }: { data: IData[] }) => {
+export const ProblemSolutionsVerdicts: FC<ProblemSolutionsVerdictsProps> = ({ verdicts }) => {
   return (
     <div className={styles.problemSolutionVerdicts}>
-      <Table data={data} columns={columns} />
+      <Table<Verdict> data={verdicts} columns={columns} />
     </div>
   )
 }
-

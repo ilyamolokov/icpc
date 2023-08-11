@@ -1,6 +1,7 @@
 import React from "react"
 
 import { Arrow } from "../../../../ui/icons/Arrow"
+
 import styles from "./ProblemSolutionVerdict.module.css"
 
 export const ProblemSolutionVerdict = () => {

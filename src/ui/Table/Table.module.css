@@ -1,16 +1,16 @@
 .table {
-  border-collapse: collapse;
   border: none;
+  border-collapse: collapse;
 }
 
 .columnHeader {
+  padding-right: 24px;
+
+  color: var(--color-grey-secondary);
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
-  color: var(--color-grey-secondary);
   text-align: left;
-
-  padding-right: 24px;
 }
 
 .tableRow:hover {
@@ -19,6 +19,7 @@
 
 .tableRowCell {
   padding: 4px 0px;
-  font-size: 12px;
+
   color: var(--color-black-typo-primary);
+  font-size: 12px;
 }

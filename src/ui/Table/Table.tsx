@@ -12,7 +12,7 @@ export interface IColumnType<T> {
   render?: (column: IColumnType<T>, item: T) => void
 }
 
-export const Table = <T,>({ data, columns }: { data: T[]; columns: IColumnType<T>[];  }) => {
+export const Table = <T,>({ data, columns }: { data: T[]; columns: IColumnType<T>[] }) => {
   return (
     <table className={styles.table}>
       <thead>

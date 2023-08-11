@@ -15,7 +15,7 @@ interface HeaderProps {
 
 export const Header: FC<HeaderProps> = ({ onTakeControl, isControlTaken }) => {
   const isTakeControlButtonDisabled = isControlTaken
-  const controlButtonTitle = isTakeControlButtonDisabled ? 'Вы управляющий' : 'Взять управление'
+  const controlButtonTitle = isTakeControlButtonDisabled ? "Вы управляющий" : "Взять управление"
 
   return (
     <header className={styles.header}>
@@ -50,7 +50,13 @@ export const Header: FC<HeaderProps> = ({ onTakeControl, isControlTaken }) => {
         </div>
 
         <div>
-          <Button className={styles.takeControlButton} title={controlButtonTitle} type="button" onClick={onTakeControl} disabled={isTakeControlButtonDisabled} />
+          <Button
+            className={styles.takeControlButton}
+            title={controlButtonTitle}
+            type="button"
+            onClick={onTakeControl}
+            disabled={isTakeControlButtonDisabled}
+          />
         </div>
       </div>
 

@@ -43,3 +43,10 @@ export interface Message {
   content: string
   userLogin: string
 }
+
+export interface Verdict {
+  id: number
+  timeFromStart: number
+  verdict: string
+  score: number
+}

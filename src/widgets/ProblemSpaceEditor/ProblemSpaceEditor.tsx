@@ -24,8 +24,8 @@ export const ProblemSpaceEditor: FC<Props> = ({ onCodeChange, codeState, sendCod
     const editor = document.querySelector<HTMLDivElement>(".ace_editor")
     const gutter = document.querySelector<HTMLDivElement>(".ace_gutter")
 
-    editor.style.backgroundColor = isEditorDisabled ? 'var(--color-white-grey)' : "#fff"
-    gutter.style.backgroundColor = isEditorDisabled ? 'var(--color-white-grey)' : "#fff"
+    editor.style.backgroundColor = isEditorDisabled ? "var(--color-white-grey)" : "#fff"
+    gutter.style.backgroundColor = isEditorDisabled ? "var(--color-white-grey)" : "#fff"
   }, [isEditorDisabled])
 
   return (

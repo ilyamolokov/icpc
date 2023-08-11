@@ -15,4 +15,3 @@ export const TableHeader = <T,>({ columns }: { columns: IColumnType<T>[] }) => {
     </tr>
   )
 }
-

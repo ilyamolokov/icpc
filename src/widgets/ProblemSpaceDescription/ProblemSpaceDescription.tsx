@@ -1,12 +1,9 @@
 import * as React from "react"
 import { FC, useState } from "react"
 
-import { Problem } from "../../types/types"
 import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
-import { Arrow } from "../../ui/icons/Arrow"
-import { ProblemSolutionsVerdicts, IData } from "../ProblemSolutionsVerdicts/ProblemSolutionsVerdicts"
-import { ProblemSolutionVerdict } from "../ProblemSolutionsVerdicts/components/ProblemSolutionVerdict/ProblemSolutionVerdict"
 import { Loading } from "../../ui/Loading/Loading"
+import { ProblemSolutionsVerdictsContainer } from "../ProblemSolutionsVerdicts/ProblemSolutionsVerdictsContainer"
 
 import styles from "./ProblemSpaceDescription.module.css"
 
@@ -17,20 +14,20 @@ interface Props {
   refetch: () => {}
 }
 
-const data: IData[] = [
-  {
-    id: "1",
-    time: "20:35",
-    status: "Решена неверно",
-    points: "0/1",
-  },
-  {
-    id: "2",
-    time: "20:35",
-    status: "Решена неверно",
-    points: "0/1",
-  },
-]
+// const data: IData[] = [
+//   {
+//     id: "1",
+//     time: "20:35",
+//     status: "Решена неверно",
+//     points: "0/1",
+//   },
+//   {
+//     id: "2",
+//     time: "20:35",
+//     status: "Решена неверно",
+//     points: "0/1",
+//   },
+// ]
 
 export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, isLoading, isError, refetch }) => {
   let [activeTab, setActiveTab] = useState("description")
@@ -106,7 +103,7 @@ export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, 
           {/*  </div>*/}
         </div>
       )}
-      {activeTab === "solutions" && <ProblemSolutionsVerdicts data={data} />}
+      {activeTab === "solutions" && <ProblemSolutionsVerdictsContainer />}
     </BlockWrapper>
   )
 }

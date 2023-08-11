@@ -18,9 +18,9 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/lobby" element={<Lobby />} />
-            <Route path="/workspace" element={<WorkSpace />}>
+          <Route path="/" element={<Main />} />
+          <Route path="/lobby" element={<Lobby />} />
+          <Route path="/workspace" element={<WorkSpace />}>
             <Route path="/workspace/:id/:alias" element={<WorkSpace />} />
           </Route>
         </Routes>

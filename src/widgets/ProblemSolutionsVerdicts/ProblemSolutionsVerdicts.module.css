@@ -2,12 +2,12 @@
   margin-top: 24px;
 }
 .detailsArrow {
-  transform: rotate(270deg);
   cursor: pointer;
+
+  transform: rotate(270deg);
 }
 
 .verdictStatus {
-  
 }
 
 .errorStatus {

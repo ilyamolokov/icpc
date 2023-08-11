@@ -9,4 +9,3 @@ export const TableRowCell = <T,>({ item, column }: { item: T; column: IColumnTyp
   const value = get(item, column.key)
   return <td className={styles.tableRowCell}>{column.render ? column.render(column, item) : value}</td>
 }
-

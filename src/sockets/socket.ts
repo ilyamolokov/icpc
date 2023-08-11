@@ -1,3 +1,4 @@
+import { trainingSessionId } from "../constants/training-session-id"
 import { urls } from "../constants/urls"
 import { YandexUser } from "../types/types"
 import {
@@ -25,7 +26,7 @@ class Socket {
 
   public init(user: YandexUser) {
     if (!this.initialized) {
-      this.client = new WebSocket(`${urls.websocket}?training_session_id=${urls.training_session_id}&user_id=${user.id}`)
+      this.client = new WebSocket(`${urls.websocket}?training_session_id=${trainingSessionId}&user_id=${user.id}`)
 
       this.client.onopen = function () {
         this.send(JSON.stringify({ type: Types.User, payload: { user } }))
@@ -89,4 +90,3 @@ class Socket {
 }
 
 export const socket = new Socket()
-
