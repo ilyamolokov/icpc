@@ -5,7 +5,7 @@ class Socket {
   private readonly handlers: Handlers
 
   constructor() {
-    this.client = new WebSocket("ws://51.250.65.5:8080/ws/training?training_session_id=c9b5c66e-e1d8-4579-9ab9-4fd2adc4b6db&user_id=2")
+    this.client = new WebSocket("ws://51.250.65.5:8080/ws/training?training_session_id=c9b5c66e-e1d8-4579-9ab9-4fd2adc4b6db&user_id=1")
     this.handlers = initialHandlers
 
     this.client.onmessage = (evt: MessageEvent<string>) => {
