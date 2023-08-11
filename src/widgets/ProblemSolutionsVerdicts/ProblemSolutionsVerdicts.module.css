@@ -1,0 +1,15 @@
+.problemSolutionVerdicts {
+  margin-top: 24px;
+}
+.detailsArrow {
+  transform: rotate(270deg);
+  cursor: pointer;
+}
+
+.verdictStatus {
+  
+}
+
+.errorStatus {
+  color: var(--color-red-light);
+}

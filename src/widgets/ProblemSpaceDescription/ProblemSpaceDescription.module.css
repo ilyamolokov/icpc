@@ -31,16 +31,6 @@
 .problemDescriptionContent {
   overflow: scroll;
 }
-.problemSolutionVerdicts {
-  margin-top: 24px;
-}
-.detailsArrow {
-  transform: rotate(270deg);
-}
-
-.verdictStatus {
-  color: var(--color-red-light);
-}
 .tab {
   cursor: pointer;
 }

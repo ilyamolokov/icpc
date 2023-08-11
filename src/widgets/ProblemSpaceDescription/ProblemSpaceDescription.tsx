@@ -4,8 +4,9 @@ import { FC, useState } from "react"
 import { Problem } from "../../types/types"
 import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
 import { Loading } from "../../ui/Loading/Loading"
-import { IColumnType, Table } from "../../ui/Table/Table"
 import { Arrow } from "../../ui/icons/Arrow"
+import { ProblemSolutionsVerdicts, IData } from "../ProblemSolutionsVerdicts/ProblemSolutionsVerdicts"
+import { ProblemSolutionVerdict } from "../ProblemSolutionsVerdicts/components/ProblemSolutionVerdict/ProblemSolutionVerdict"
 
 import styles from "./ProblemSpaceDescription.module.css"
 
@@ -15,46 +16,6 @@ interface Props {
   isError: boolean
   refetch: () => {}
 }
-
-interface IData {
-  id: string
-  time: string
-  status: string
-  points: string
-}
-
-const columns: IColumnType<IData>[] = [
-  {
-    key: "time",
-    title: "Время",
-    width: 50,
-  },
-  {
-    key: "status",
-    title: "Статус",
-    width: 400,
-    render: (_, { status }) => (
-      <>
-        <span className={styles.verdictStatus}>{status}</span>
-      </>
-    ),
-  },
-  {
-    key: "points",
-    title: "Баллы",
-    width: 40,
-  },
-  {
-    key: "details",
-    title: "",
-    width: 32,
-    render: (_, { id }) => (
-      <>
-        <Arrow className={styles.detailsArrow} width={20} height={20} color={"var(--color-grey-secondary)"} />
-      </>
-    ),
-  },
-]
 
 const data: IData[] = [
   {
@@ -145,11 +106,7 @@ export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, 
           {/*  </div>*/}
         </div>
       )}
-      {activeTab === "solutions" && (
-        <div className={styles.problemSolutionVerdicts}>
-          <Table data={data} columns={columns} />
-        </div>
-      )}
+      {activeTab === "solutions" && <ProblemSolutionsVerdicts data={data} />}
     </BlockWrapper>
   )
 }
