@@ -1,6 +1,9 @@
+import { urls } from "../constants/urls"
+import { YandexUser } from "../types/types"
 import {
   CodeHandler,
-  CodePayload, ControlTakenHandler,
+  CodePayload,
+  ControlTakenHandler,
   ControlTakenPayload,
   Data,
   Handler,
@@ -9,9 +12,8 @@ import {
   MessageHandler,
   Type,
   Types,
+  VerdictRetrievedHandler,
 } from "./types"
-import { YandexUser } from "../types/types"
-import { urls } from "../constants/urls"
 
 class Socket {
   private client: WebSocket
@@ -33,11 +35,11 @@ class Socket {
         const { type, payload }: Data = JSON.parse(evt.data)
 
         if (this.handlers[type]) {
-          this.handlers[type].forEach(handler => handler(payload))
+          this.handlers[type].forEach((handler) => handler(payload))
         }
       }
 
-      this.initialized = true;
+      this.initialized = true
     }
   }
 
@@ -59,9 +61,14 @@ class Socket {
     return this.subscribe(Types.Code, handler)
   }
 
-  public subscribeControlTaken(handler: ControlTakenHandler){
+  public subscribeControlTaken(handler: ControlTakenHandler) {
     // @ts-ignore
     return this.subscribe(Types.ControlTaken, handler)
+  }
+
+  public subscribeVerdictRetrieved(handler: VerdictRetrievedHandler) {
+    // @ts-ignore
+    return this.subscribe(Types.VerdictRetrieved, handler)
   }
 
   private send(data: Data) {
@@ -82,3 +89,4 @@ class Socket {
 }
 
 export const socket = new Socket()
+
