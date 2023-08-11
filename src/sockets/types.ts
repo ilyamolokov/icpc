@@ -1,6 +1,6 @@
 export enum Types {
   Message = "message",
-  Code = "code",
+  Code = "CODE_EDITOR_UPDATE",
 }
 
 export type Type = `${Types}`

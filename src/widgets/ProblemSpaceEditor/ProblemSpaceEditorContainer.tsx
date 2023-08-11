@@ -7,6 +7,7 @@ import { ProblemSpaceEditor } from "./ProblemSpaceEditor"
 
 export const ProblemSpaceEditorContainer: FC = () => {
   const { alias } = useParams()
+
   const [codeState, setCodeState] = useState<string>("")
 
   const sendCode = (code: string) => {
@@ -17,11 +18,18 @@ export const ProblemSpaceEditorContainer: FC = () => {
   const onCodeChange = (code: string) => {
     socket.sendCode({ code, problemAlias: alias })
   }
+
   const editorEventhandler: CodeHandler = ({ code }) => {
     setCodeState(code)
   }
+
   useEffect(() => {
     socket.subscribeEditor(alias, editorEventhandler)
+
+    api.getCodeByProblemAlias("c9b5c66e-e1d8-4579-9ab9-4fd2adc4b6db", alias)
+      .then(({ code }) => setCodeState(code))
+      .catch(console.log)
   }, [alias])
+
   return <ProblemSpaceEditor onCodeChange={onCodeChange} codeState={codeState} sendCode={sendCode} />
 }
