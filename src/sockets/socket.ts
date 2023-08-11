@@ -1,12 +1,18 @@
 import { CodeHandler, CodePayload, Data, Handler, Handlers, initialHandlers, MessageHandler, SubscribeParams, Type, Types } from "./types"
+import { YandexUser } from "../types/types"
 
 class Socket {
-  private readonly client: WebSocket
-  private readonly handlers: Handlers
+  private client: WebSocket
+  private readonly handlers: Handlers = initialHandlers
 
-  constructor() {
+  constructor() {}
+
+  public init(user: YandexUser) {
     this.client = new WebSocket("ws://51.250.65.5:8080/ws/training?training_session_id=c9b5c66e-e1d8-4579-9ab9-4fd2adc4b6db&user_id=2")
-    this.handlers = initialHandlers
+
+    this.client.onopen = () => {
+      this.client.send(JSON.stringify(user))
+    }
 
     this.client.onmessage = (evt: MessageEvent<string>) => {
       const { type, payload }: Data = JSON.parse(evt.data)
