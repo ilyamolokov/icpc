@@ -23,7 +23,7 @@ export const ProblemSpaceChatContainer: FC = () => {
   }
 
   useEffect(() => {
-    socket.subscribeMessage(messageEventHandler)
+    return socket.subscribeMessage(messageEventHandler)
   }, [alias])
 
   return <ProblemSpaceChat messages={messages} onSendMessage={onSendMessage} />

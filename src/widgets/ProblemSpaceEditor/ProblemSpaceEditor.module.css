@@ -30,3 +30,7 @@
   font-size: 14px;
   line-height: 1.4;
 }
+
+.sendCodeButton:disabled {
+  background-color: var(--color-white-grey);
+}

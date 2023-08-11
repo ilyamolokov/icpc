@@ -1,4 +1,15 @@
-import { CodeHandler, CodePayload, Data, Handler, Handlers, initialHandlers, MessageHandler, Type, Types } from "./types"
+import {
+  CodeHandler,
+  CodePayload, ControlTakenHandler,
+  ControlTakenPayload,
+  Data,
+  Handler,
+  Handlers,
+  initialHandlers,
+  MessageHandler,
+  Type,
+  Types,
+} from "./types"
 import { YandexUser } from "../types/types"
 import { urls } from "../constants/urls"
 
@@ -20,12 +31,12 @@ class Socket {
 
       this.client.onmessage = (evt: MessageEvent<string>) => {
         const { type, payload }: Data = JSON.parse(evt.data)
-        console.log(JSON.parse(evt.data))
 
         if (this.handlers[type]) {
-          this.handlers[type](payload)
+          this.handlers[type].forEach(handler => handler(payload))
         }
       }
+
       this.initialized = true;
     }
   }
@@ -34,14 +45,23 @@ class Socket {
     this.send({ type: Types.Code, payload })
   }
 
+  public sendControlTaken(payload: ControlTakenPayload) {
+    this.send({ type: Types.ControlTaken, payload })
+  }
+
   public subscribeMessage(handler: MessageHandler) {
     // @ts-ignore
-    this.subscribe(Types.Message, handler)
+    return this.subscribe(Types.Message, handler)
   }
 
   public subscribeEditor(handler: CodeHandler) {
     // @ts-ignore
-    this.subscribe(Types.Code, handler)
+    return this.subscribe(Types.Code, handler)
+  }
+
+  public subscribeControlTaken(handler: ControlTakenHandler){
+    // @ts-ignore
+    return this.subscribe(Types.ControlTaken, handler)
   }
 
   private send(data: Data) {
@@ -49,7 +69,15 @@ class Socket {
   }
 
   private subscribe(eventName: Type, handler: Handler) {
-    this.handlers[eventName] = handler
+    if (!this.handlers[eventName]) {
+      this.handlers[eventName] = new Set([handler])
+    } else {
+      this.handlers[eventName].add(handler)
+    }
+
+    return () => {
+      this.handlers[eventName].delete(handler)
+    }
   }
 }
 

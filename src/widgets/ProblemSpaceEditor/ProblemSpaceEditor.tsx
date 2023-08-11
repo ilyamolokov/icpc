@@ -14,19 +14,24 @@ interface Props {
   onCodeChange: (code: string) => void
   codeState: string
   sendCode: (code: string) => void
+  isEditorDisabled: boolean
 }
 
-export const ProblemSpaceEditor: FC<Props> = ({ onCodeChange, codeState, sendCode }) => {
+export const ProblemSpaceEditor: FC<Props> = ({ onCodeChange, codeState, sendCode, isEditorDisabled }) => {
+  const isSendCodeButtonDisabled = isEditorDisabled
+
   React.useEffect(() => {
     const gutter = document.querySelector<HTMLDivElement>(".ace_gutter")
     gutter.style.backgroundColor = "#fff"
   }, [])
+
   return (
     <BlockWrapper className={styles.blockWrapper}>
       <div className={styles.header}>
         <ProblemSpaceEditorSelect />
       </div>
       <AceEditor
+        readOnly={isEditorDisabled}
         mode="javascript"
         value={codeState}
         width="100%"
@@ -41,12 +46,13 @@ export const ProblemSpaceEditor: FC<Props> = ({ onCodeChange, codeState, sendCod
       <div className={styles.footer}>
         <span className={styles.alarm}>Редактор бездействует 1 минуту</span>
         <Button
+          className={styles.sendCodeButton}
           title="Отправить"
           type="button"
           onClick={() => {
             sendCode(codeState)
           }}
-          disabled={false}
+          disabled={isSendCodeButtonDisabled}
         />
       </div>
     </BlockWrapper>

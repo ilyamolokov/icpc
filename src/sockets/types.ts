@@ -2,6 +2,7 @@ export enum Types {
   Message = "PROBLEM_COMMENT_RECEIVED",
   Code = "CODE_EDITOR_UPDATE",
   User = "USER",
+  ControlTaken = "CONTROL_TAKEN"
 }
 
 export type Type = `${Types}`
@@ -24,6 +25,10 @@ export interface CodePayload extends Payload {
   userId:string
 }
 
+export interface ControlTakenPayload extends Payload {
+  userId: string
+}
+
 export interface Data {
   type: Type
   payload?: Payload
@@ -33,9 +38,10 @@ export type Handler<P extends Payload = Payload> = (payload: P) => void
 
 export type MessageHandler = (payload: MessagePayload) => void
 export type CodeHandler = (payload: CodePayload) => void
+export type ControlTakenHandler = (payload: ControlTakenPayload) => void
 
 export type Handlers = {
-  [key in Type]?: Handler
+  [key in Type]?: Set<Handler>
 }
 
-export const initialHandlers: Handlers = {}
+export const initialHandlers = {}

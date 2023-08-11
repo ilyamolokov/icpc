@@ -18,6 +18,12 @@
   transition: opacity linear 0.2s;
 }
 
+button:disabled:hover {
+  cursor: default;
+
+  opacity: 1;
+}
+
 .button:hover {
   opacity: 0.7;
 }

@@ -1,5 +1,5 @@
 import classnames from "classnames"
-import React from "react"
+import React, { FC } from "react"
 
 import { Button } from "../../ui/Button/Button"
 import { KeyboardOff } from "../../ui/icons/KeyboardOff"
@@ -8,7 +8,14 @@ import { User } from "../../ui/icons/User"
 
 import styles from "./Header.module.css"
 
-export const Header = () => {
+interface HeaderProps {
+  onTakeControl: () => void
+  isControlTaken: boolean
+}
+
+export const Header: FC<HeaderProps> = ({ onTakeControl, isControlTaken }) => {
+  const isTakeControlButtonDisabled = isControlTaken
+  const controlButtonTitle = isTakeControlButtonDisabled ? 'Вы управляющий' : 'Взять управление'
 
   return (
     <header className={styles.header}>
@@ -43,7 +50,7 @@ export const Header = () => {
         </div>
 
         <div>
-          <Button className={styles.takeControlButton} title="Взять управление" type="button" onClick={() => {}} disabled={false} />
+          <Button className={styles.takeControlButton} title={controlButtonTitle} type="button" onClick={onTakeControl} disabled={isTakeControlButtonDisabled} />
         </div>
       </div>
 
