@@ -38,6 +38,8 @@ export const ProblemSpaceEditorContainer: FC = () => {
   }
 
   const onCodeChange = (code: string) => {
+    setCodeState(code)
+
     socket.sendCode({ code, problemAlias: alias, userId: user.id })
   }
 
