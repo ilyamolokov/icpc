@@ -6,6 +6,7 @@ import { Loading } from "../../ui/Loading/Loading"
 import { ProblemSolutionsVerdictsContainer } from "../ProblemSolutionsVerdicts/ProblemSolutionsVerdictsContainer"
 
 import styles from "./ProblemSpaceDescription.module.css"
+import "./ProblemDescription.css"
 
 interface Props {
   currentProblemDescription: string

@@ -127,3 +127,6 @@
 .codeSampleBlockIde p {
   font-weight: 400;
 }
+.problemDescriptionContent {
+  padding-top: 12px;
+}
