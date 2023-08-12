@@ -7,6 +7,7 @@ import { Arrow } from "../../../../ui/icons/Arrow"
 import { User } from "../../../../ui/icons/User"
 
 import styles from "./ProblemSpaceListItem.module.css"
+import { useParams } from "react-router"
 
 interface ProblemSpaceListProps {
   className?: string
@@ -21,9 +22,9 @@ interface ProblemSpaceListProps {
 }
 export const ProblemSpaceListItem: FC<ProblemSpaceListProps> = ({ className, problem, handleProblemSpaceClick, status }) => {
   const title = `${problem.alias}. ${problem.name}`
-  // const { id:contestId, alias: currentAlias } = useParams();
+  const { alias } = useParams();
 
-  // const isSelected = id === currentProblemId
+  const isSelected = alias === problem.alias
 
   const [isOpen, setIsOpen] = useState(false)
   const toggleDropdown = () => setIsOpen(!isOpen)
@@ -45,39 +46,39 @@ export const ProblemSpaceListItem: FC<ProblemSpaceListProps> = ({ className, pro
         <div
           onClick={() => handleProblemSpaceClick(problem)}
           className={classNames({
-            // [styles.titlePrimary]: isSelected,
-            // [styles.titleSecondary]: !isSelected,
+            [styles.titlePrimary]: isSelected,
+            [styles.titleSecondary]: !isSelected,
           })}
         >
           {title}
         </div>
       </div>
       <div className={styles.statusUserBlock}>
-        <div
-          className={classNames({
-            [styles.statusDone]: status === "done",
-            [styles.statusPending]: status === "pending",
-            [styles.statusWrong]: status === "wrong",
-            [styles.statusDefault]: status === "default",
-          })}
-        >
-          {"1"}
-        </div>
-        <div className={styles.user}>
-          <User width={24} height={24} color={"var(--color-black-typo-primary)"} />
-        </div>
-        <div className={styles.dropdownContainer}>
-          <div className={classNames(styles.arrow, { [styles.rotated]: isOpen })} onClick={toggleDropdown}>
-            <Arrow width={18} height={18} color={"var(--color-black-typo-primary)"} />
-          </div>
-          {isOpen && (
-            <div className={styles.dropdown}>
-              <div className={styles.user}>
-                <User width={24} height={24} color={"var(--color-black-typo-primary)"} />
-              </div>
-            </div>
-          )}
-        </div>
+        {/*<div*/}
+        {/*  className={classNames({*/}
+        {/*    [styles.statusDone]: status === "done",*/}
+        {/*    [styles.statusPending]: status === "pending",*/}
+        {/*    [styles.statusWrong]: status === "wrong",*/}
+        {/*    [styles.statusDefault]: status === "default",*/}
+        {/*  })}*/}
+        {/*>*/}
+        {/*  {"1"}*/}
+        {/*</div>*/}
+        {/*<div className={styles.user}>*/}
+        {/*  <User width={24} height={24} color={"var(--color-black-typo-primary)"} />*/}
+        {/*</div>*/}
+        {/*<div className={styles.dropdownContainer}>*/}
+        {/*  <div className={classNames(styles.arrow, { [styles.rotated]: isOpen })} onClick={toggleDropdown}>*/}
+        {/*    <Arrow width={18} height={18} color={"var(--color-black-typo-primary)"} />*/}
+        {/*  </div>*/}
+        {/*  {isOpen && (*/}
+        {/*    <div className={styles.dropdown}>*/}
+        {/*      <div className={styles.user}>*/}
+        {/*        <User width={24} height={24} color={"var(--color-black-typo-primary)"} />*/}
+        {/*      </div>*/}
+        {/*    </div>*/}
+        {/*  )}*/}
+        {/*</div>*/}
       </div>
     </div>
   )

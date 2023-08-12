@@ -35,7 +35,7 @@ export const ProblemSpaceList: FC<Props> = ({ problems, handleProblemSpaceClick,
         ))}
       </div>
 
-      <ProblemSpaceListInfo />
+      {/*<ProblemSpaceListInfo />*/}
     </BlockWrapper>
   )
 }

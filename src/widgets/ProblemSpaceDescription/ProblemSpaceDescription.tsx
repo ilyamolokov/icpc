@@ -76,7 +76,7 @@ export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, 
             Отправленные решения
           </span>
         </div>
-        <span className={styles.problemStatus}>Не решена</span> {/* В будущем можно вынести в отдельный компонент */}
+        {/*<span className={styles.problemStatus}>Не решена</span> /!* В будущем можно вынести в отдельный компонент *!/*/}
       </div>
 
       {activeTab === "description" && (

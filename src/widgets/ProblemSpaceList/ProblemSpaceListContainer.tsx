@@ -12,7 +12,7 @@ import { ProblemSpaceList } from "./ProblemSpaceList"
 export const ProblemSpaceListContainer = () => {
   const { alias: currentAlias } = useParams()
   const navigate = useNavigate()
-  const contestId = "50596" // мокаем contestId
+  const contestId = "51004" // мокаем contestId
 
   const {
     data: problems,
