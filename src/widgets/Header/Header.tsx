@@ -3,9 +3,9 @@ import React, { FC } from "react"
 
 import { YandexUser } from "../../types/types"
 import { Button } from "../../ui/Button/Button"
-import { HeaderUser } from "./components/HeaderUser"
 
 import styles from "./Header.module.css"
+import { HeaderUser } from "./components/HeaderUser/HeaderUser"
 
 interface HeaderProps {
   onTakeControl: () => void
@@ -50,7 +50,7 @@ export const Header: FC<HeaderProps> = ({ onTakeControl, isControlTaken, yandexU
         </div>
 
         <div>
-          <Button className={styles.finishButton} title="Завершить тренировку" type="button" onClick={() => {}} disabled={false} />
+          <Button className={styles.finishButton} title="Завершить тренировку" type="button" onClick={() => { }} disabled={false} />
         </div>
       </div>
     </header>
