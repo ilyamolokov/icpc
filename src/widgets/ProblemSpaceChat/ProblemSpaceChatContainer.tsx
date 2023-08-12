@@ -3,10 +3,10 @@ import { FC, useEffect, useState } from "react"
 import { useParams } from "react-router"
 
 import { api } from "../../api"
+import { trainingSessionId } from "../../constants/training-session-id"
 import { MessageHandler, socket } from "../../sockets"
 import { Message } from "../../types/types"
 import { ProblemSpaceChat } from "./ProblemSpaceChat"
-import { trainingSessionId } from "../../constants/training-session-id"
 
 export const ProblemSpaceChatContainer: FC = () => {
   const { alias } = useParams()
@@ -22,9 +22,7 @@ export const ProblemSpaceChatContainer: FC = () => {
   }
 
   useEffect(() => {
-    api.getMessagesByAlias(trainingSessionId, alias)
-      .then(setMessages)
-      .catch(console.log)
+    api.getMessagesByAlias(trainingSessionId, alias).then(setMessages).catch(console.log)
 
     return socket.subscribeMessage(messageEventHandler)
   }, [alias])

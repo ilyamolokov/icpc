@@ -4,8 +4,8 @@ import { urls } from "../constants/urls"
 import { checkAuthorizationToken } from "../helpers/checkAuthorizationToken"
 import { configInterceptor } from "../helpers/configInterceptor"
 import { errorInterceptor } from "../helpers/errorInterceptor"
+import { Message, YandexUser } from "../types/types"
 import { createFile } from "../utils/createFile"
-import { Message } from "../types/types"
 
 class Api {
   private readonly client: AxiosInstance
@@ -65,7 +65,11 @@ class Api {
   }
 
   getMessagesByAlias(trainingSessionId: string, problemAlias: string) {
-    return this.get<Message[]>(`training-sessions/${trainingSessionId}/problem/${problemAlias}/comments/`)
+    return this.get<Message[]>(`training-sessions/${trainingSessionId}/problem/${problemAlias}/comments`)
+  }
+
+  async getYandexUsersOnline(trainingSessionId: string) {
+    return (await this.get<{ users: YandexUser[] }>(`training-sessions/${trainingSessionId}/online`)).users
   }
 }
 

@@ -1,21 +1,23 @@
 import classnames from "classnames"
 import React, { FC } from "react"
 
+import { YandexUser } from "../../types/types"
 import { Button } from "../../ui/Button/Button"
-import { KeyboardOff } from "../../ui/icons/KeyboardOff"
-import { KeyboardOn } from "../../ui/icons/KeyboardOn"
-import { User } from "../../ui/icons/User"
+import { HeaderUser } from "./components/HeaderUser"
 
 import styles from "./Header.module.css"
 
 interface HeaderProps {
   onTakeControl: () => void
   isControlTaken: boolean
+  yandexUsersOnline: YandexUser[]
 }
 
-export const Header: FC<HeaderProps> = ({ onTakeControl, isControlTaken }) => {
+export const Header: FC<HeaderProps> = ({ onTakeControl, isControlTaken, yandexUsersOnline }) => {
   const isTakeControlButtonDisabled = isControlTaken
   const controlButtonTitle = isTakeControlButtonDisabled ? "Вы управляющий" : "Взять управление"
+
+  console.log(yandexUsersOnline)
 
   return (
     <header className={styles.header}>
@@ -26,27 +28,9 @@ export const Header: FC<HeaderProps> = ({ onTakeControl, isControlTaken }) => {
 
       <div className={styles.headerSection}>
         <div className={styles.users}>
-          <div className={styles.user}>
-            <div className={styles.avatar}>
-              <User color="var(--color-black-typo-primary)" width={40} height={40} />
-              <span className={styles.badge} />
-            </div>
-            <KeyboardOn color="var(--color-black-typo-primary)" width={32} height={32} />
-          </div>
-          <div className={styles.user}>
-            <div className={styles.avatar}>
-              <User color="var(--color-black-typo-primary)" width={40} height={40} />
-              <span className={styles.badge} />
-            </div>
-            <KeyboardOff color="var(--color-grey-secondary)" width={32} height={32} />
-          </div>
-          <div className={styles.user}>
-            <div className={styles.avatar}>
-              <User color="var(--color-black-typo-primary)" width={40} height={40} />
-              <span className={classnames(styles.badge, styles.badgeDisconnected)} />
-            </div>
-            <KeyboardOff color="var(--color-grey-secondary)" width={32} height={32} />
-          </div>
+          {yandexUsersOnline.map((user) => (
+            <HeaderUser yandexUser={user} key={user.id} />
+          ))}
         </div>
 
         <div>

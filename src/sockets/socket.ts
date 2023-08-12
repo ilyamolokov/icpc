@@ -13,6 +13,8 @@ import {
   MessageHandler,
   Type,
   Types,
+  UserHandler,
+  UserLeaveHandler,
   VerdictRetrievedHandler,
 } from "./types"
 
@@ -70,6 +72,16 @@ class Socket {
   public subscribeVerdictRetrieved(handler: VerdictRetrievedHandler) {
     // @ts-ignore
     return this.subscribe(Types.VerdictRetrieved, handler)
+  }
+
+  public subscribeUser(handler: UserHandler) {
+    // @ts-ignore
+    return this.subscribe(Types.User, handler)
+  }
+
+  public subscribeUserLeave(handler: UserLeaveHandler) {
+    // @ts-ignore
+    return this.subscribe(Types.UserLeave, handler)
   }
 
   private send(data: Data) {
