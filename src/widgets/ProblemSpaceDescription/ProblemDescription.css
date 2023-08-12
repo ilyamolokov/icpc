@@ -1,0 +1,80 @@
+.problem-statement {
+  color: var(--color-black-typo-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.problem-statement h2, .problem-statement h3 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.property-title {
+  font-size: 14px;
+  color: var(--color-grey-secondary);
+}
+
+.problem-statement td {
+  font-size: 14px;
+  color: var(--color-grey-secondary);
+  padding: 2px 0px;
+}
+
+.legend, .input-specification, .output-specification, .notes {
+  font-size: 14px;
+  line-height: 20px;
+}
+.legend p, .input-specification p, .output-specification p, .notes p {
+  padding: 4px 0px;
+}
+
+.sample-tests {
+  border-spacing: 8px 0px;
+  margin: 0px -8px;
+}
+.sample-tests thead{
+  text-align: left;
+}
+
+.sample-tests th {
+  padding-bottom: 8px;
+  font-weight: 500;
+}
+.sample-tests td {
+  background-color: var(--color-white-grey);
+  border-radius: 4px;
+  font-weight: 500;
+  padding: 8px;
+  width: 50%;
+}
+
+.problem-statement ul {
+  padding-top: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.problem-statement ul li {
+  list-style: inside;
+  padding: 2px 0px;
+}
+
+.problemDescriptionImg {
+  margin-top: 8px;
+  max-width: 100%;
+  height: auto;
+}

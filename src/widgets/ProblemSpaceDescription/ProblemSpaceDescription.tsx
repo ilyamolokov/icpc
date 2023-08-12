@@ -1,3 +1,4 @@
+import "./ProblemDescription.css"
 import * as React from "react"
 import { FC, useState } from "react"
 
@@ -47,6 +48,15 @@ export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, 
       </BlockWrapper>
     )
   }
+  const parser = new DOMParser()
+  const descHtml = parser.parseFromString(currentProblemDescription, "text/html")
+
+  const imgs = descHtml.querySelectorAll("img")
+  imgs.forEach((img) => {
+    const src = img.getAttribute("src")
+    img.setAttribute("src", `https://contest.yandex.ru${src}`)
+    img.classList.add("problemDescriptionImg")
+  })
   return (
     <BlockWrapper className={styles.blockWrapper}>
       <div className={styles.problemDescriptionHeader}>
@@ -71,7 +81,7 @@ export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, 
 
       {activeTab === "description" && (
         <div className={styles.problemDescriptionContent}>
-          <div dangerouslySetInnerHTML={{ __html: currentProblemDescription }} />
+          <div dangerouslySetInnerHTML={{ __html: descHtml.body.innerHTML }} />
           {/*  <div className={styles.problemTitleBlock}>*/}
           {/*    <h3>Считалока 2.0</h3>*/}
           {/*    <span>*/}

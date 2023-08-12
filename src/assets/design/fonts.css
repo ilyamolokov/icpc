@@ -37,7 +37,7 @@
   font-weight: 900;
   font-family: "Helvetica Neue";
   font-style: normal;
-  src: url("../fonts/HelveticaNeueCyr-Black.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Black.woff") format("woff");
+  src: url("../fonts/HelveticaNeueCyr-Medium.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Medium.woff") format("woff");
 }
 
 body {
