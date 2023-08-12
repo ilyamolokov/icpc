@@ -40,8 +40,14 @@ export interface YandexUser {
 }
 
 export interface Message {
-  content: string
-  userLogin: string
+  id: string,
+  userId: number,
+  userFirstName: string,
+  userLastName: string,
+  userLogin: string,
+  problemAlias: string,
+  content: string,
+  dtCreated: string
 }
 
 export interface Verdict {

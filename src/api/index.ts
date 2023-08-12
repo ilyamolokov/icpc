@@ -5,6 +5,7 @@ import { checkAuthorizationToken } from "../helpers/checkAuthorizationToken"
 import { configInterceptor } from "../helpers/configInterceptor"
 import { errorInterceptor } from "../helpers/errorInterceptor"
 import { createFile } from "../utils/createFile"
+import { Message } from "../types/types"
 
 class Api {
   private readonly client: AxiosInstance
@@ -60,10 +61,11 @@ class Api {
   }
 
   postMessage(trainingSessionId: string, problemAlias: string, content: string) {
-    const formData = new FormData()
-    formData.append("content", content)
+    return this.post(`training-sessions/${trainingSessionId}/problem/${problemAlias}/comments/send`, { content })
+  }
 
-    return this.post(`training-session/${trainingSessionId}/problem/${problemAlias}/commment/send`, formData)
+  getMessagesByAlias(trainingSessionId: string, problemAlias: string) {
+    return this.get<Message[]>(`training-sessions/${trainingSessionId}/problem/${problemAlias}/comments/`)
   }
 }
 

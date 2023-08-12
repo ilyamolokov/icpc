@@ -13,12 +13,14 @@ export interface Payload {
 }
 
 export interface MessagePayload extends Payload {
-  content: string
-  id: string
-  userFirstName: string
-  userId: string
-  userLastName: string
-  userLogin: string
+  id: string,
+  userId: number,
+  userFirstName: string,
+  userLastName: string,
+  userLogin: string,
+  problemAlias: string,
+  content: string,
+  dtCreated: string
 }
 
 export interface CodePayload extends Payload {
