@@ -6,7 +6,7 @@ import { Button } from "../../ui/Button/Button"
 
 import styles from "./Header.module.css"
 import { HeaderUser } from "./components/HeaderUser/HeaderUser"
-import { ControlButton } from "./components/ControlButton/ControlButton"
+import { ControlButtonContainer } from "./components/ControlButton/ControlButtonContainer"
 
 interface HeaderProps {
   onTakeControl: () => void
@@ -14,8 +14,8 @@ interface HeaderProps {
 }
 
 export const Header: FC<HeaderProps> = ({ onTakeControl, yandexUsersOnline }) => {
-  // const isTakeControlButtonDisabled = isControlTaken
-  // const controlButtonTitle = isTakeControlButtonDisabled ? "Вы управляющий" : "Взять управление"
+  // const isTakeControlButtonContainerDisabled = isControlTaken
+  // const controlButtonTitle = isTakeControlButtonContainerDisabled ? "Вы управляющий" : "Взять управление"
 
   console.log(yandexUsersOnline)
 
@@ -32,21 +32,21 @@ export const Header: FC<HeaderProps> = ({ onTakeControl, yandexUsersOnline }) =>
             <HeaderUser yandexUser={user} key={user.id} />
           ))}
         </div>
-        <ControlButton />
+        <ControlButtonContainer />
         {/* <div>
           <Button
-            className={styles.takeControlButton}
+            className={styles.takeControlButtonContainer}
             title={controlButtonTitle}
             type="button"
             onClick={onTakeControl}
-            disabled={isTakeControlButtonDisabled}
+            disabled={isTakeControlButtonContainerDisabled}
           />
         </div> */}
       </div>
 
       <div className={styles.headerSection}>
         <div className={styles.timer}>
-          До завершения осталось: <span className={styles.time}>01:56:02</span>
+          {/* До завершения осталось: <span className={styles.time}>01:56:02</span> */}
         </div>
 
         <div>

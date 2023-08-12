@@ -5,14 +5,17 @@ import { api } from "../../api"
 import { trainingSessionId } from "../../constants/training-session-id"
 import { getRunId } from "../../helpers/getRunId"
 import { CodeHandler, ControlTakenHandler, socket } from "../../sockets"
-import { useGetYandexUserQuery } from "../../store/api/api"
+import { useGetControlUserQuery, useGetYandexUserQuery } from "../../store/api/api"
 import { ProblemSpaceEditor } from "./ProblemSpaceEditor"
 
 export const ProblemSpaceEditorContainer: FC = () => {
-  const { alias } = useParams()
+  const { data: currentUser } = useGetYandexUserQuery()
+  const { data: controlUser } = useGetControlUserQuery(trainingSessionId)
 
   const [codeState, setCodeState] = useState<string>("")
-  const [isEditorDisabled, setIsEditorDisabled] = useState<boolean>(true)
+  const [isEditorDisabled, setIsEditorDisabled] = useState<boolean>(controlUser.userId !== currentUser.id)
+
+  const { alias } = useParams()
 
   const { data: user } = useGetYandexUserQuery()
 

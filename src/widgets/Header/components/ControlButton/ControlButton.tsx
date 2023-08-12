@@ -1,45 +1,26 @@
-import React, { useEffect, useState } from "react"
-import { Button } from "../../../../ui/Button/Button"
+import classnames from "classnames"
+import React, { FC } from "react"
+
 import styles from "./ControlButton.module.css"
-import { useGetControlUserQuery, useGetYandexUserQuery } from "../../../../store/api/api"
-import { ControlTakenHandler, socket } from "../../../../sockets"
-import { trainingSessionId } from "../../../../constants/training-session-id"
+import { Button } from "../../../../ui/Button/Button"
 
-export const ControlButton = () => {
-    const { data: currentUser } = useGetYandexUserQuery()
-    const { data: controlUser } = useGetControlUserQuery(trainingSessionId)
-
-    const [isActive, setIsActive] = useState(controlUser.userId === currentUser.id)
-
-    const controlTakenEventHandler: ControlTakenHandler = ({ userId }) => {
-        setIsActive(userId === currentUser.id)
-    }
-
-    const onTakeControl = () => {
-        console.log(currentUser.id)
-        socket.sendControlTaken({ userId: currentUser.id })
-    }
-
-    useEffect(() => {
-        return socket.subscribeControlTaken(controlTakenEventHandler)
-    }, [])
-
-    const controlButtonTitle = isActive ? "Вы управляющий" : "Взять управление"
-
-    return <div>
-        <Button
-            className={styles.takeControlButton}
-            title={controlButtonTitle}
-            type="button"
-            onClick={onTakeControl}
-            disabled={isActive}
-        />
-    </div>
+interface Props {
+    isActive: boolean
+    onTakeControl: () => void
 }
 
+export const ControlButton: FC<Props> = ({ isActive, onTakeControl }) => {
+    const controlButtonTitle = isActive ? "Вы управляющий" : "Взять управление"
 
-
-
-
-
-
+    return (
+        <div>
+            <Button
+                className={styles.takeControlButtonContainer}
+                title={controlButtonTitle}
+                type="button"
+                onClick={onTakeControl}
+                disabled={isActive}
+            />
+        </div>
+    )
+}

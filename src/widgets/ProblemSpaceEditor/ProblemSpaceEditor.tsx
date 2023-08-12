@@ -47,7 +47,7 @@ export const ProblemSpaceEditor: FC<Props> = ({ onCodeChange, codeState, sendCod
         }}
       />
       <div className={styles.footer}>
-        <span className={styles.alarm}>Редактор бездействует 1 минуту</span>
+        {/* <span className={styles.alarm}>Редактор бездействует 1 минуту</span> */}
         <Button
           className={styles.sendCodeButton}
           title="Отправить"

@@ -1,7 +1,7 @@
-.takeControlButton {
+.takeControlButtonContainer {
     margin: 0 0 0 22px;
 }
 
-.takeControlButton:disabled {
+.takeControlButtonContainer:disabled {
     background-color: var(--color-green-light);
 }
