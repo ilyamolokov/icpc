@@ -20,6 +20,9 @@
 
   /* Red palette */
   --color-red-light: #f15959;
+
+  --scrollbar-foreground: rgba(83, 83, 83, 0.5);
+  --scrollbar-background: var(--color-white-grey);
 }
 
 * {
@@ -62,4 +65,22 @@ li {
   height: 100%;
 
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+html {
+  /* плашка-бегунок и фон */
+  scrollbar-color: var(--scrollbar-foreground) var(--scrollbar-background);
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-background);
+  margin-block: 2px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-foreground);
+  border-radius: 10px;
+  transition: background .3s;
 }
