@@ -2,14 +2,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 .detailsHeader {
   display: flex;
   align-items: center;
-
+}
+.title {
   font-size: 20px;
 }
 

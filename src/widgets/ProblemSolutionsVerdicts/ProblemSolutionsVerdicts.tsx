@@ -6,6 +6,7 @@ import { IColumnType, Table } from "../../ui/Table/Table"
 import { Arrow } from "../../ui/icons/Arrow"
 
 import styles from "./ProblemSolutionsVerdicts.module.css"
+import { ProblemSolutionVerdict } from "./components/ProblemSolutionVerdict/ProblemSolutionVerdict"
 
 export interface ProblemSolutionsVerdictsProps {
   verdicts: Verdict[]
@@ -46,6 +47,7 @@ export const ProblemSolutionsVerdicts: FC<ProblemSolutionsVerdictsProps> = ({ ve
   return (
     <div className={styles.problemSolutionVerdicts}>
       <Table<Verdict> data={verdicts} columns={columns} />
+      <ProblemSolutionVerdict/>
     </div>
   )
 }
