@@ -10,7 +10,7 @@ import { Loading } from "../../ui/Loading/Loading"
 import { ProblemSpaceList } from "./ProblemSpaceList"
 
 export const ProblemSpaceListContainer = () => {
-  const { id, alias: currentAlias } = useParams()
+  const { alias: currentAlias } = useParams()
   const navigate = useNavigate()
   const contestId = "50596" // мокаем contestId
 
@@ -20,6 +20,7 @@ export const ProblemSpaceListContainer = () => {
     isError,
   } = useQuery("problems", () => api.getProblems(contestId), {
     onSuccess: (problems: Problems) => {
+      problems.sort((a, b) => a.alias.localeCompare(b.alias))
       navigate(`/workspace/${contestId}/${problems[0].alias}`)
     },
   })

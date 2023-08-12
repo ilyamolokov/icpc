@@ -6,6 +6,7 @@ import { IColumnType, Table } from "../../ui/Table/Table"
 import { Arrow } from "../../ui/icons/Arrow"
 
 import styles from "./ProblemSolutionsVerdicts.module.css"
+import classnames from "classnames"
 import { ProblemSolutionVerdict } from "./components/ProblemSolutionVerdict/ProblemSolutionVerdict"
 
 export interface ProblemSolutionsVerdictsProps {
@@ -17,19 +18,35 @@ const columns: IColumnType<Verdict>[] = [
     key: "time",
     title: "Время",
     width: 50,
-    render: (_, { timeFromStart }) => <span className={classNames(styles.verdictStatus, styles.errorStatus)}>{timeFromStart}</span>,
+    render: (_, { timeFromStart }) => (
+      <span className={styles.row}>
+        {
+          new Date(timeFromStart).toISOString().slice(11, 19)
+        }
+      </span>
+    ),
   },
   {
     key: "status",
     title: "Статус",
     width: 400,
-    render: (_, { verdict }) => <span className={classNames(styles.verdictStatus, styles.errorStatus)}>{verdict}</span>,
+    render: (_, { verdict }) => {
+      const className = classnames({
+        [styles.row]: true,
+        [styles.verdictStatus]: true,
+        [styles.verdictStatusOk]: verdict === 'OK'
+      })
+
+      return <span className={className}>{verdict}</span>
+    },
   },
   {
     key: "points",
     title: "Баллы",
     width: 40,
-    render: (_, { score }) => <span className={classNames(styles.verdictStatus, styles.errorStatus)}>{score}</span>,
+    render: (_, { verdict }) => <span className={styles.row}>
+      {verdict === 'OK' ? '1' : '0'}
+    </span>,
   },
   {
     key: "details",

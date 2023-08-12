@@ -51,8 +51,15 @@ export interface Message {
 }
 
 export interface Verdict {
-  id: number
+  compileLog: string
+  compiler: string
+  diff: string
+  problemAlias: string
+  problemId: string
+  score: number
+  source: string
+  submissionTime: string
   timeFromStart: number
   verdict: string
-  score: number
+  id: number
 }
