@@ -8,8 +8,13 @@
 }
 
 .verdictStatus {
+  color: var(--color-red-light);
 }
 
-.errorStatus {
-  color: var(--color-red-light);
+.verdictStatusOk {
+  color: var(--color-green-light)
+}
+
+.row {
+  font-size: 14px;
 }

@@ -29,14 +29,9 @@ export const ProblemSpaceEditorContainer: FC = () => {
   }
 
   const sendCode = async (code: string) => {
-    try {
-      const res = await api.postSubmissions(trainingSessionId, code, "nodejs_18", "E")
-      const runId = getRunId(res.data)
-      console.log(runId)
-      fetchSubmissionDetails(runId) // вызываем функцию после получения runId
-    } catch (error) {
-      console.log(error)
-    }
+    api.postSubmissions(trainingSessionId, code, "nodejs_18", alias)
+        .then(console.log)
+        .catch(console.log)
   }
 
   const onCodeChange = (code: string) => {

@@ -4,7 +4,7 @@ import { urls } from "../constants/urls"
 import { checkAuthorizationToken } from "../helpers/checkAuthorizationToken"
 import { configInterceptor } from "../helpers/configInterceptor"
 import { errorInterceptor } from "../helpers/errorInterceptor"
-import { Message, YandexUser } from "../types/types"
+import { Message, Verdict, YandexUser } from "../types/types"
 import { createFile } from "../utils/createFile"
 
 class Api {
@@ -40,12 +40,12 @@ class Api {
     return await this.get("user/me")
   }
 
-  async postSubmissions(trainingSessionId: string, code: string, compiler: string, problem: string) {
-    const url = `/training-sessions/${trainingSessionId}/submissions`
+  postSubmissions(trainingSessionId: string, code: string, compiler: string, problem: string) {
     const formData = createFile(code)
     formData.append("compiler", compiler)
     formData.append("problem", problem)
-    return await this.client.post(url, formData)
+
+    return this.post(`/training-sessions/${trainingSessionId}/submissions`, formData)
   }
 
   async getSubmissions(trainingSessionId: string, submissionId: number) {
@@ -70,6 +70,10 @@ class Api {
 
   async getYandexUsersOnline(trainingSessionId: string) {
     return (await this.get<{ users: YandexUser[] }>(`training-sessions/${trainingSessionId}/online`)).users
+  }
+
+  getVerdictsByAlias(trainingSessionId: string, problemAlias: string) {
+    return this.get<{ count: number, submissions: Verdict[]}>(`training-sessions/${trainingSessionId}/submissions/problem/${problemAlias}`)
   }
 }
 
