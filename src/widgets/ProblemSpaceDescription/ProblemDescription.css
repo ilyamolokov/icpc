@@ -45,6 +45,7 @@
 .sample-tests {
   border-spacing: 8px 0px;
   margin: 0px -8px;
+  width: 100%;
 }
 .sample-tests thead{
   text-align: left;
