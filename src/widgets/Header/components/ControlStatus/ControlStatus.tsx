@@ -27,6 +27,6 @@ export const ControlStatus: FC<ControlStatusProps> = ({ id }) => {
 
     return isActive
         ? <KeyboardOn color="var(--color-black-typo-primary)" width={32} height={32} />
-        : <KeyboardOff color="var(--color-black-typo-primary)" width={32} height={32} />
+        : <KeyboardOff color="var(--color-grey-secondary)" width={32} height={32} />
 
 }
