@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Lobby from "./pages/Lobby/Lobby"
 import Main from "./pages/Main/Main"
 import { WorkSpace } from "./pages/WorkSpace/WorkSpace"
-import { useGetYandexUserQuery } from "./store/api/user.api"
+import { useGetYandexUserQuery } from "./store/api/api"
 
 const queryClient = new QueryClient()
 

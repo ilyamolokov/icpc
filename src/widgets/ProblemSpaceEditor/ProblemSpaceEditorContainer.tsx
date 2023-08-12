@@ -5,7 +5,7 @@ import { api } from "../../api"
 import { trainingSessionId } from "../../constants/training-session-id"
 import { getRunId } from "../../helpers/getRunId"
 import { CodeHandler, ControlTakenHandler, socket } from "../../sockets"
-import { useGetYandexUserQuery } from "../../store/api/user.api"
+import { useGetYandexUserQuery } from "../../store/api/api"
 import { ProblemSpaceEditor } from "./ProblemSpaceEditor"
 
 export const ProblemSpaceEditorContainer: FC = () => {

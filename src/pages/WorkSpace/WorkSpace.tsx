@@ -1,17 +1,21 @@
 import React from "react"
 
 import { socket } from "../../sockets"
-import { useGetYandexUserQuery } from "../../store/api/user.api"
+import { useGetControlUserQuery, useGetYandexUserQuery } from "../../store/api/api"
 import { HeaderContainer } from "../../widgets/Header/HeaderContainer"
 import { ProblemSpace } from "../../widgets/ProblemSpace/ProblemSpace"
 
 import styles from "./WorkSpace.module.css"
+import { trainingSessionId } from "../../constants/training-session-id"
 
 export const WorkSpace = () => {
   const { data: user } = useGetYandexUserQuery()
+  const { data: controlUser } = useGetControlUserQuery(trainingSessionId)
 
-  if (user) {
-    socket.init(user)
+  socket.init(user)
+
+  if (!controlUser) {
+    return null
   }
 
   return (

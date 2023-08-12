@@ -6,16 +6,16 @@ import { Button } from "../../ui/Button/Button"
 
 import styles from "./Header.module.css"
 import { HeaderUser } from "./components/HeaderUser/HeaderUser"
+import { ControlButton } from "./components/ControlButton/ControlButton"
 
 interface HeaderProps {
   onTakeControl: () => void
-  isControlTaken: boolean
   yandexUsersOnline: YandexUser[]
 }
 
-export const Header: FC<HeaderProps> = ({ onTakeControl, isControlTaken, yandexUsersOnline }) => {
-  const isTakeControlButtonDisabled = isControlTaken
-  const controlButtonTitle = isTakeControlButtonDisabled ? "Вы управляющий" : "Взять управление"
+export const Header: FC<HeaderProps> = ({ onTakeControl, yandexUsersOnline }) => {
+  // const isTakeControlButtonDisabled = isControlTaken
+  // const controlButtonTitle = isTakeControlButtonDisabled ? "Вы управляющий" : "Взять управление"
 
   console.log(yandexUsersOnline)
 
@@ -32,8 +32,8 @@ export const Header: FC<HeaderProps> = ({ onTakeControl, isControlTaken, yandexU
             <HeaderUser yandexUser={user} key={user.id} />
           ))}
         </div>
-
-        <div>
+        <ControlButton />
+        {/* <div>
           <Button
             className={styles.takeControlButton}
             title={controlButtonTitle}
@@ -41,7 +41,7 @@ export const Header: FC<HeaderProps> = ({ onTakeControl, isControlTaken, yandexU
             onClick={onTakeControl}
             disabled={isTakeControlButtonDisabled}
           />
-        </div>
+        </div> */}
       </div>
 
       <div className={styles.headerSection}>

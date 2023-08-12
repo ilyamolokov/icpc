@@ -4,7 +4,7 @@ import { FC, useEffect, useState } from "react"
 import { api } from "../../api"
 import { trainingSessionId } from "../../constants/training-session-id"
 import { ControlTakenHandler, UserHandler, UserLeaveHandler, socket } from "../../sockets"
-import { useGetYandexUserQuery } from "../../store/api/user.api"
+import { useGetYandexUserQuery } from "../../store/api/api"
 import { YandexUser } from "../../types/types"
 import { Header } from "./Header"
 
@@ -44,5 +44,5 @@ export const HeaderContainer: FC = () => {
     }
   }, [isControlTaken])
 
-  return <Header yandexUsersOnline={yandexUsersOnline} onTakeControl={onTakeControl} isControlTaken={isControlTaken} />
+  return <Header yandexUsersOnline={yandexUsersOnline} onTakeControl={onTakeControl} />
 }

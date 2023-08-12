@@ -1,3 +1,4 @@
+import { trainingSessionId } from './../../constants/training-session-id';
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react"
 
 import { urls } from "../../constants/urls"
@@ -5,8 +6,8 @@ import { getCookie } from "../../helpers/getCookie"
 import { setCookie } from "../../helpers/setCookie"
 import { YandexUser } from "../../types/types"
 
-export const userApi = createApi({
-  reducerPath: "userApi",
+export const api = createApi({
+  reducerPath: "api",
   baseQuery: fetchBaseQuery({
     baseUrl: urls.openApiUrl,
     prepareHeaders: (headers) => {
@@ -37,7 +38,12 @@ export const userApi = createApi({
         url: "user/me",
       }),
     }),
+    getControlUser: build.query<{userId:string}, string>({
+      query: (trainingSessionId) => ({
+        url: `/training-sessions/${trainingSessionId}/control/current`,
+      }),
+    }),
   }),
 })
 
-export const { useGetYandexUserQuery } = userApi
+export const { useGetYandexUserQuery, useGetControlUserQuery } = api
