@@ -7,6 +7,7 @@ import { Loading } from "../../ui/Loading/Loading"
 import { ProblemSolutionsVerdictsContainer } from "../ProblemSolutionsVerdicts/ProblemSolutionsVerdictsContainer"
 
 import styles from "./ProblemSpaceDescription.module.css"
+import { ProblemSolutionVerdict } from "../ProblemSolutionsVerdicts/components/ProblemSolutionVerdict/ProblemSolutionVerdict"
 
 interface Props {
   currentProblemDescription: string
@@ -113,7 +114,9 @@ export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, 
           {/*  </div>*/}
         </div>
       )}
-      {activeTab === "solutions" && <ProblemSolutionsVerdictsContainer />}
+      {/* {activeTab === "solutions" && <ProblemSolutionsVerdictsContainer />} */}
+      <ProblemSolutionVerdict />
+
     </BlockWrapper>
   )
 }
