@@ -2,12 +2,12 @@ import classnames from "classnames"
 import React from "react"
 
 import { Verdict } from "../../../../types/types"
+import { Accordion } from "../../../../ui/Accordion/Accordion"
 import { IColumnType, Table } from "../../../../ui/Table/Table"
 import { Arrow } from "../../../../ui/icons/Arrow"
 import { ProblemSolutionsVerdicts } from "../../ProblemSolutionsVerdicts"
 
 import styles from "./ProblemSolutionVerdict.module.css"
-import { Accordion } from "../../../../ui/Accordion/Accordion"
 
 const verdicts: Verdict[] = [
   {
@@ -42,7 +42,6 @@ const columns: IColumnType<Verdict>[] = [
         [styles.verdictStatus]: true,
         [styles.verdictStatusOk]: verdict === "OK",
       })
-import { Verdict } from "../../../../types/types"
 
       return <span className={className}>{verdict}</span>
     },
@@ -61,7 +60,14 @@ export const ProblemSolutionVerdict = () => {
       verdict: "OK",
       score: 100,
       id: 1,
-    }
+      compileLog: "Compile log",
+      compiler: "gcc",
+      diff: "diff",
+      problemAlias: "problemAlias",
+      problemId: "problemId",
+      source: "source",
+      submissionTime: "2021-05-05T12:00:00.000Z",
+    },
   ]
   return (
     <div className={styles.problemSolutionDetails}>
@@ -71,7 +77,18 @@ export const ProblemSolutionVerdict = () => {
       </div>
       <div className={styles.detailsContent}>
         <div className={styles.detailsTable}>
-          <ProblemSolutionsVerdicts verdicts={verdicts} />
+          <Table<Verdict> data={verdicts} columns={columns} />
+        </div>
+        <div className={styles.detailsInfo}>
+          <Accordion title={"Тесты: 2/3"}>
+            <div className={styles.detailsTestsTable}>Test</div>
+          </Accordion>
+          <Accordion title={"Исходный код"}>
+            <div className={styles.codeBlock}>Исходный код</div>
+          </Accordion>
+          <Accordion title={"Лог компиляции"}>
+            <div className={styles.codeBlock}>Лог компиляции</div>
+          </Accordion>
         </div>
       </div>
     </div>
