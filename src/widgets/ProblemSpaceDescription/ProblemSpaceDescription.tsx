@@ -4,7 +4,7 @@ import { FC, useState } from "react"
 
 import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
 import { Loading } from "../../ui/Loading/Loading"
-import { ProblemSolutionsVerdictsContainer } from "../ProblemSolutionsVerdicts/ProblemSolutionsVerdictsContainer"
+import { ProblemVerdictsContainer } from "../ProblemVerdicts/ProblemVerdictsContainer"
 
 import styles from "./ProblemSpaceDescription.module.css"
 
@@ -113,7 +113,7 @@ export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, 
           {/*  </div>*/}
         </div>
       )}
-      {activeTab === "solutions" && <ProblemSolutionsVerdictsContainer />}
+      {activeTab === "solutions" && <ProblemVerdictsContainer />}
     </BlockWrapper>
   )
 }

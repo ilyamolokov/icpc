@@ -40,7 +40,7 @@ export const ProblemSpaceEditorContainer: FC = () => {
     socket.sendCode({ code, problemAlias: alias, userId: user.id })
   }
 
-  const editorEventHandler: CodeHandler = ({ code, userId, problemAlias }) => {
+  const codeEventHandler: CodeHandler = ({ code, userId, problemAlias }) => {
     if (userId !== user.id && problemAlias === alias) {
       setCodeState(code)
     }
@@ -52,11 +52,11 @@ export const ProblemSpaceEditorContainer: FC = () => {
 
   useEffect(() => {
     api
-      .getCodeByProblemAlias(trainingSessionId, alias)
+      .getCodeByAlias(trainingSessionId, alias)
       .then(({ code }) => setCodeState(code))
       .catch(console.log)
 
-    const editorUnsubscribe = socket.subscribeEditor(editorEventHandler)
+    const editorUnsubscribe = socket.subscribeEditor(codeEventHandler)
     const controlTakenUnsubscribe = socket.subscribeControlTaken(controlTakenHandler)
 
     return () => {
